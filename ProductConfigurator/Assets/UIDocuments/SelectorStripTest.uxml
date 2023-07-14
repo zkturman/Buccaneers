@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SelectorStrip" src="project://database/Assets/SelectorStrip.uxml?fileID=9197481963319205126&amp;guid=8a22dde4f16f0e3468d4062787ede1fd&amp;type=3#SelectorStrip" />
+    <Style src="project://database/Assets/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:Instance template="SelectorStrip" name="SelectorStrip" />
+</ui:UXML>

@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="SelectorField" src="project://database/Assets/SelectorField.uxml?fileID=9197481963319205126&amp;guid=e099d3e8653795a4da2600bcff72d887&amp;type=3#SelectorField" />
+    <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:VisualElement name="Parent" class="selector-strip-parent">
+        <ui:Button display-tooltip-when-elided="true" name="LeftArrow" class="arrow-button" />
+        <ui:VisualElement name="SelectorFieldContainer" class="selector-field-container" style="width: auto;">
+            <ui:VisualElement name="SelectorField0" class="selector-field" style="overflow: hidden;">
+                <ui:VisualElement name="LeftObscuringElement" style="width: 100%; left: 50%; overflow: hidden;">
+                    <ui:Instance template="SelectorField" name="SelectorField" style="left: -50%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="SelectorField1" class="selector-field">
+                <ui:Instance template="SelectorField" name="SelectorField" class="strip-selector-field" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SelectorField2" class="selector-field">
+                <ui:Instance template="SelectorField" name="SelectorField" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SelectorField3" class="selector-field">
+                <ui:Instance template="SelectorField" name="SelectorField" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SelectorField4" class="selector-field">
+                <ui:VisualElement name="RightObscuringElement" style="width: 50%; overflow: hidden; flex-grow: 1;">
+                    <ui:Instance template="SelectorField" name="SelectorField" style="width: 200%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button display-tooltip-when-elided="true" name="RightArrow" class="arrow-button" />
+    </ui:VisualElement>
+</ui:UXML>
