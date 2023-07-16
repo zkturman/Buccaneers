@@ -1,4 +1,5 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
     <ui:VisualElement name="Parent" class="selector-field-parent">
         <ui:Label text="&lt;Name&gt;" display-tooltip-when-elided="true" name="NameLabel" class="selector-field-text" />
         <ui:VisualElement name="SelectorField" style="width: 75%; height: 75%; justify-content: center; align-items: center;">

@@ -1,5 +1,38 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="SelectorStrip" src="project://database/Assets/SelectorStrip.uxml?fileID=9197481963319205126&amp;guid=8a22dde4f16f0e3468d4062787ede1fd&amp;type=3#SelectorStrip" />
-    <Style src="project://database/Assets/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:Template name="SelectorStrip" src="project://database/Assets/UIDocuments/SelectorStrip.uxml?fileID=9197481963319205126&amp;guid=8a22dde4f16f0e3468d4062787ede1fd&amp;type=3#SelectorStrip" />
+    <ui:Template name="SelectorField" src="project://database/Assets/UIDocuments/SelectorFieldTemplate.uxml?fileID=9197481963319205126&amp;guid=e099d3e8653795a4da2600bcff72d887&amp;type=3#SelectorFieldTemplate" />
+    <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:VisualElement name="SelectorStrip" style="height: 33%;">
+        <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+        <ui:VisualElement name="Parent" class="selector-strip-parent" style="flex-direction: column;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="StripTitle" class="heading-font" />
+            <ui:VisualElement name="StripAndButtons" style="flex-grow: 1; flex-direction: row; align-items: center; height: 100%;">
+                <ui:Button display-tooltip-when-elided="true" name="LeftArrow" class="arrow-button" />
+                <ui:VisualElement name="SelectorFieldContainer" class="selector-field-container">
+                    <ui:VisualElement name="SelectorField0" class="selector-field" style="overflow: hidden;">
+                        <ui:VisualElement name="LeftObscuringElement" style="width: 100%; left: 50%; overflow: hidden; flex-grow: 1;">
+                            <ui:Instance template="SelectorField" name="SelectorFieldTemplate" style="left: -50%;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="SelectorField1" class="selector-field">
+                        <ui:Instance template="SelectorField" name="SelectorFieldTemplate" class="strip-selector-field" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="SelectorField2" class="selector-field">
+                        <ui:Instance template="SelectorField" name="SelectorFieldTemplate" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="SelectorField3" class="selector-field">
+                        <ui:Instance template="SelectorField" name="SelectorFieldTemplate" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="SelectorField4" class="selector-field">
+                        <ui:VisualElement name="RightObscuringElement" style="width: 50%; overflow: hidden; flex-grow: 1; justify-content: center;">
+                            <ui:Instance template="SelectorField" name="SelectorFieldTemplate" style="width: 200%;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Button display-tooltip-when-elided="true" name="RightArrow" class="arrow-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Instance template="SelectorStrip" name="SelectorStrip" />
     <ui:Instance template="SelectorStrip" name="SelectorStrip" />
 </ui:UXML>
