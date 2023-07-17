@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="SelectorField" src="project://database/Assets/SelectorField.uxml?fileID=9197481963319205126&amp;guid=e099d3e8653795a4da2600bcff72d887&amp;type=3#SelectorField" />
+    <ui:Template name="SelectorField" src="project://database/Assets/UIDocuments/SelectorFieldTemplate.uxml?fileID=9197481963319205126&amp;guid=e099d3e8653795a4da2600bcff72d887&amp;type=3#SelectorFieldTemplate" />
     <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
-    <ui:Instance template="SelectorField" name="SelectorField" />
+    <ui:Instance template="SelectorField" name="SelectorFieldTemplate" />
 </ui:UXML>

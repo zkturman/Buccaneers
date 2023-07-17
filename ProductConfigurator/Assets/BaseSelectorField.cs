@@ -5,10 +5,14 @@ using UnityEngine.UIElements;
 public class BaseSelectorField
 {
     private VisualElement fieldElemet;
-    
-    public BaseSelectorField(VisualElement fieldElement)
-    {
+    private BaseFieldData fieldData;
 
+    public BaseSelectorField(VisualElement fieldElement, BaseFieldData fieldData)
+    {
+        this.fieldElemet = fieldElement;
+        this.fieldData = fieldData;
+        fieldElement.Q(fieldData.ClassManager.NameLabelClass).visible = false;
+        fieldElemet.Q(fieldData.ClassManager.CostLabelClass).visible = false;
     }
     
     public void HideElement(bool shouldHide)

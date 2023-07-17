@@ -23,7 +23,8 @@ public class BaseSelectorStrip : MonoBehaviour
         selectorFieldsElements = firstStrip.Query("SelectorFieldTemplate").ToList();
         maxVisibleFields = selectorFieldsElements.Count;
         hideAllFields();
-        configureStripUI();
+        int middleIndex = numberOfFields / 2; //start by selecting the middle index
+        configureStripUI(middleIndex);
     }
 
     private void hideAllFields()
@@ -34,13 +35,12 @@ public class BaseSelectorStrip : MonoBehaviour
         }
     }
 
-    private void configureStripUI()
+    private void configureStripUI(int selectedIndex)
     {
-        int middleIndex = numberOfFields / 2;
         int minimumIndex = (maxVisibleFields / 2) * -1;
-        minimumIndex = centerIndex(minimumIndex, middleIndex);
+        minimumIndex = centerIndex(minimumIndex, selectedIndex);
         int maximumIndex = maxVisibleFields / 2;
-        maximumIndex = centerIndex(maximumIndex, middleIndex);
+        maximumIndex = centerIndex(maximumIndex, selectedIndex);
         int j = 0;  
         for (int i = minimumIndex; i <= maximumIndex; i++)
         {
