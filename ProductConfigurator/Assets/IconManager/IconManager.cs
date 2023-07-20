@@ -15,7 +15,7 @@ public class IconManager : MonoBehaviour
     private StatIconKeyValue[] StatIcons;
     private Dictionary<StatType, Sprite> statMap;
 
-    private void Start()
+    private void Awake()
     {
         beastieMap = BeastieIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         effectMap = SpecialEffectIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
