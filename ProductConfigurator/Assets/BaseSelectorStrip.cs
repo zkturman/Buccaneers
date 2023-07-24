@@ -11,7 +11,9 @@ public class BaseSelectorStrip : MonoBehaviour
     [SerializeField]
     private string rightArrowButtonName = "RightArrow";
     private int maxVisibleFields;
-    private List<VisualElement> selectorFieldsElements;
+    private List<VisualElement> selectorFieldElements;
+    [SerializeField]
+    private BaseFieldData[] fieldData;
     private List<BaseSelectorField> selectorFields2;
     private VisualElement rootElement;
     private int currentFieldIndex;
@@ -20,8 +22,13 @@ public class BaseSelectorStrip : MonoBehaviour
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
         VisualElement firstStrip = rootElement.Q("SelectorStrip");
-        selectorFieldsElements = firstStrip.Query("SelectorFieldTemplate").ToList();
-        maxVisibleFields = selectorFieldsElements.Count;
+        selectorFieldElements = firstStrip.Query("SelectorFieldTemplate").ToList();
+        List<BaseSelectorField> fieldInstances = new List<BaseSelectorField>(0);
+        for (int i = 0; i < selectorFieldElements.Count; i++)
+        {
+            fieldInstances.Add(new BaseSelectorField(selectorFieldElements[i]));
+        }
+        maxVisibleFields = selectorFieldElements.Count;
         hideAllFields();
         int middleIndex = numberOfFields / 2; //start by selecting the middle index
         configureStripUI(middleIndex);
@@ -29,9 +36,9 @@ public class BaseSelectorStrip : MonoBehaviour
 
     private void hideAllFields()
     {
-        for (int i = 0; i < selectorFieldsElements.Count; i++)
+        for (int i = 0; i < selectorFieldElements.Count; i++)
         {
-            selectorFieldsElements[i].visible = false;
+            selectorFieldElements[i].visible = false;
         }
     }
 
@@ -46,7 +53,9 @@ public class BaseSelectorStrip : MonoBehaviour
         {
             if (i >= 0 && i < numberOfFields)
             {
-                selectorFieldsElements[j].visible = true;
+                BaseSelectorField field = new BaseSelectorField(selectorFieldElements[j]);
+                field.ConfigureElement(fieldData[i]);
+                field.HideElement(false);
             }
             j++;
         }

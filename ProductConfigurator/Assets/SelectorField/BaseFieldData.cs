@@ -21,5 +21,4 @@ public class BaseFieldData
     [SerializeField]
     private int bonusStatValue = 0;
     public int BonusStatValue { get => bonusStatValue; }
-    public SelectorFieldClassManager ClassManager;
 }

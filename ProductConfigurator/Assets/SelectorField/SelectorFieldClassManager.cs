@@ -23,4 +23,11 @@ public class SelectorFieldClassManager : MonoBehaviour
     private string costLabelClass = "CostLabel";
     public string CostLabelClass { get => costLabelClass; }
 
+    public static SelectorFieldClassManager Classes;
+
+    private void Awake()
+    {
+        Classes = this;
+    }
+
 }

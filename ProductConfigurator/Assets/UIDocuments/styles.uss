@@ -97,3 +97,7 @@
 .arrow-button:hover {
     scale: 1.5 1.5;
 }
+
+#MainIcon {
+    -unity-background-scale-mode: scale-to-fit;
+}

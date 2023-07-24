@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeastieType : MonoBehaviour
+public enum BeastieType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    None,
+    Monkey,
+    Squid,
+    Deer,
+    Parrot,
+    Fish,
+    Lizard,
+    Mouse,
+    Snake
 }

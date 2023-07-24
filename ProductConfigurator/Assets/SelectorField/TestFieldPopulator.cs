@@ -13,7 +13,8 @@ public class TestFieldPopulator : MonoBehaviour
     {
         VisualElement rootElement = GetComponent<UIDocument>().rootVisualElement;
         VisualElement selectorField = rootElement.Q("SelectorFieldTemplate");
-        testData.ClassManager = selectorFieldClassManager;
-        BaseSelectorField testField = new BaseSelectorField(selectorField, testData);
+        BaseSelectorField testField = new BaseSelectorField(selectorField);
+        testField.ConfigureElement(testData);
+        testField.SelectElement();
     }
 }

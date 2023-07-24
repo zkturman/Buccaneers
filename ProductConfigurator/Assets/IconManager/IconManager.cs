@@ -14,12 +14,17 @@ public class IconManager : MonoBehaviour
     [SerializeField]
     private StatIconKeyValue[] StatIcons;
     private Dictionary<StatType, Sprite> statMap;
+    [SerializeField]
+    private Sprite defaultIcon;
+
+    public static IconManager Icons;
 
     private void Awake()
     {
         beastieMap = BeastieIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         effectMap = SpecialEffectIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         statMap = StatIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
+        Icons = this;
     }
 
     public Sprite GetBeastieIcon(BeastieType typeToGet)
@@ -50,5 +55,10 @@ public class IconManager : MonoBehaviour
             statIcon = statMap[typeToGet];
         }
         return statIcon;
+    }
+
+    public Sprite GetDefaultIcon()
+    {
+        return defaultIcon; 
     }
 }
