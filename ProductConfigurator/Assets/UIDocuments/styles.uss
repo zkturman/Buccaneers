@@ -38,7 +38,8 @@
 }
 
 .stat-bonus-text {
-    -unity-text-align: upper-right;
+    -unity-text-align: middle-right;
+    font-size: 50px;
 }
 
 #SelectorFieldTemplate {
@@ -98,6 +99,8 @@
     scale: 1.5 1.5;
 }
 
-#MainIcon {
+.icon-apsect {
     -unity-background-scale-mode: scale-to-fit;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,16 +5,14 @@ using UnityEngine.UIElements;
 public class BaseSelectorStrip : MonoBehaviour
 {
     [SerializeField]
-    private int numberOfFields = 1;
-    [SerializeField]
     private string leftArrowButtonName = "LeftArrow";
     [SerializeField]
     private string rightArrowButtonName = "RightArrow";
     private int maxVisibleFields;
     private List<VisualElement> selectorFieldElements;
+    private List<BaseSelectorField> selectorFieldModels;
     [SerializeField]
     private BaseFieldData[] fieldData;
-    private List<BaseSelectorField> selectorFields2;
     private VisualElement rootElement;
     private int currentFieldIndex;
 
@@ -23,14 +21,14 @@ public class BaseSelectorStrip : MonoBehaviour
         rootElement = GetComponent<UIDocument>().rootVisualElement;
         VisualElement firstStrip = rootElement.Q("SelectorStrip");
         selectorFieldElements = firstStrip.Query("SelectorFieldTemplate").ToList();
-        List<BaseSelectorField> fieldInstances = new List<BaseSelectorField>(0);
+        selectorFieldModels = new List<BaseSelectorField>();
         for (int i = 0; i < selectorFieldElements.Count; i++)
         {
-            fieldInstances.Add(new BaseSelectorField(selectorFieldElements[i]));
+            selectorFieldModels.Add(new BaseSelectorField(selectorFieldElements[i]));
         }
         maxVisibleFields = selectorFieldElements.Count;
         hideAllFields();
-        int middleIndex = numberOfFields / 2; //start by selecting the middle index
+        int middleIndex = fieldData.Length / 2; //start by selecting the middle index
         configureStripUI(middleIndex);
     }
 
@@ -38,7 +36,7 @@ public class BaseSelectorStrip : MonoBehaviour
     {
         for (int i = 0; i < selectorFieldElements.Count; i++)
         {
-            selectorFieldElements[i].visible = false;
+            selectorFieldModels[i].HideElement(true);
         }
     }
 
@@ -51,11 +49,12 @@ public class BaseSelectorStrip : MonoBehaviour
         int j = 0;  
         for (int i = minimumIndex; i <= maximumIndex; i++)
         {
-            if (i >= 0 && i < numberOfFields)
+            if (i >= 0 && i < fieldData.Length)
             {
                 BaseSelectorField field = new BaseSelectorField(selectorFieldElements[j]);
                 field.ConfigureElement(fieldData[i]);
                 field.HideElement(false);
+                field.SelectElement();
             }
             j++;
         }

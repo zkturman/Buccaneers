@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8165583621708837190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8165583621708837189}
+  - component: {fileID: 8165583621708837188}
+  m_Layer: 0
+  m_Name: IconManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8165583621708837189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165583621708837190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.8147497, y: -8.467966, z: 42.92306}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8165583621708837188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165583621708837190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0affc2faf2674ad4b838e22dde094c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeastieIcons:
+  - type: 0
+    value: {fileID: 21300000, guid: 51f660f0da9991440bca6dcf759a67d8, type: 3}
+  - type: 1
+    value: {fileID: 21300000, guid: 43b72598c1df2e44c9b64c4a4cd32c08, type: 3}
+  - type: 2
+    value: {fileID: 21300000, guid: cb00194e0b0b3604ea7ff59804eb3e33, type: 3}
+  - type: 3
+    value: {fileID: 21300000, guid: 3aa480ecac14a664d9778ac70c027699, type: 3}
+  - type: 4
+    value: {fileID: 21300000, guid: 2bb9adfcff2c406448a25288cdcb47de, type: 3}
+  - type: 5
+    value: {fileID: 21300000, guid: 67521cbbbecf3f546880a4b293459250, type: 3}
+  - type: 6
+    value: {fileID: 21300000, guid: 1c1971bf18532664daaaff644a820274, type: 3}
+  - type: 7
+    value: {fileID: 21300000, guid: 5e26b178b4bc520458262ab202827b64, type: 3}
+  - type: 8
+    value: {fileID: 21300000, guid: 808074775dd97114ca48e7678cd455e7, type: 3}
+  SpecialEffectIcons:
+  - type: 0
+    value: {fileID: 21300000, guid: 023f3fbff6cf3f24bab072f314250d7d, type: 3}
+  - type: 1
+    value: {fileID: 21300000, guid: 9d525296885017644955990a97b4d76b, type: 3}
+  - type: 2
+    value: {fileID: 21300000, guid: dce806ea26a68314380af8a772a0c13b, type: 3}
+  - type: 3
+    value: {fileID: 21300000, guid: 8d925919f3c20484ba60593a82f0356f, type: 3}
+  - type: 4
+    value: {fileID: 21300000, guid: 84bd6ab8ed780494380593d3bbafa811, type: 3}
+  - type: 5
+    value: {fileID: 21300000, guid: fa306bf14436f4d45961032172d9f5a5, type: 3}
+  StatIcons:
+  - type: 0
+    value: {fileID: 21300000, guid: f748b51e9aa11f44a81f7ac5eb802559, type: 3}
+  - type: 1
+    value: {fileID: 21300000, guid: d6772399053a88c4a99b82db0388fba7, type: 3}
+  - type: 2
+    value: {fileID: 21300000, guid: 8575ad0204d7d4f4d8da3b6917911b3b, type: 3}
+  - type: 3
+    value: {fileID: 21300000, guid: e51cc85e0ee52da40934a97cf4232129, type: 3}
+  - type: 4
+    value: {fileID: 21300000, guid: b5001f6c482a0404ba029551518d11b8, type: 3}
+  defaultIcon: {fileID: 21300000, guid: 023f3fbff6cf3f24bab072f314250d7d, type: 3}

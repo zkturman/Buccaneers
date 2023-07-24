@@ -9,7 +9,7 @@ public class TestFieldPopulator : MonoBehaviour
     private BaseFieldData testData;
     [SerializeField]
     private SelectorFieldClassManager selectorFieldClassManager;
-    private void OnEnable()
+    private void OnEnable() 
     {
         VisualElement rootElement = GetComponent<UIDocument>().rootVisualElement;
         VisualElement selectorField = rootElement.Q("SelectorFieldTemplate");

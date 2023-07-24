@@ -14,7 +14,7 @@ public class BaseSelectorField
         this.currentElement = fieldElement;
         hideName(true);
         hideCost(true);
-        setIcon();
+        setMainIcon();
     }
 
     public void ConfigureElement(BaseFieldData fieldData)
@@ -22,6 +22,8 @@ public class BaseSelectorField
         this.currentData = fieldData;
         setName();
         setCostValue();
+        setEffectIcon();
+        setStatBonus();
     }
 
     private void hideName(bool shouldHide)
@@ -50,12 +52,47 @@ public class BaseSelectorField
         }
     }
 
-    private void setIcon()
+    private void setMainIcon()
     {
         if (currentElement != null)
         {
             VisualElement mainIcon = currentElement.Q(SelectorFieldClassManager.Classes.MainIconClass);
             mainIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetDefaultIcon());
+        }
+    }
+
+    private void setEffectIcon()
+    {
+        if (currentData != null)
+        {
+            VisualElement effectIcon = currentElement.Q(SelectorFieldClassManager.Classes.EffectIconClass);
+            if (currentData.EffectType != SpecialEffectType.None)
+            {
+                effectIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetEffectIcon(currentData.EffectType));
+            }
+            else
+            {
+                effectIcon.style.backgroundImage = new StyleBackground();
+            }
+        }
+    }
+
+    private void setStatBonus()
+    {
+        if (currentData != null)
+        {
+            VisualElement statIcon = currentElement.Q(SelectorFieldClassManager.Classes.StatBonusIconClass);
+            Label statLabel = currentElement.Q<Label>(SelectorFieldClassManager.Classes.StatBonusValueClass);
+            if (currentData.BonusStat != StatType.None)
+            {
+                statIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetStatIcon(currentData.BonusStat));
+                statLabel.text = currentData.BonusStatValue.ToString();
+            }
+            else
+            {
+                statIcon.style.backgroundImage = new StyleBackground();
+                statLabel.text = string.Empty;
+            }
         }
     }
 

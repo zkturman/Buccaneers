@@ -3,12 +3,12 @@
     <ui:VisualElement name="Parent" class="selector-field-parent">
         <ui:Label text="&lt;Name&gt;" display-tooltip-when-elided="true" name="NameLabel" class="selector-field-text" />
         <ui:VisualElement name="SelectorField" style="width: 75%; height: 75%; justify-content: center; align-items: center;">
-            <ui:VisualElement name="MainIcon" style="width: 60%; height: 60%;" />
+            <ui:VisualElement name="MainIcon" class="icon-aspect icon-apsect" style="width: 60%; height: 60%;" />
             <ui:VisualElement name="SecondaryIcons" style="height: 25%; width: 100%; flex-direction: row; justify-content: space-between;">
-                <ui:VisualElement name="SpecialEffectIcon" style="width: 25%;" />
+                <ui:VisualElement name="SpecialEffectIcon" class="icon-aspect icon-apsect" style="width: 25%;" />
                 <ui:VisualElement name="StatBonusSection" style="flex-direction: row; width: 50%;">
                     <ui:Label text="[Int]" display-tooltip-when-elided="true" name="StatBonusValue" class="stat-bonus-text" style="width: 50%;" />
-                    <ui:VisualElement name="StatBonusIcon" style="width: 50%;" />
+                    <ui:VisualElement name="StatBonusIcon" class="icon-aspect icon-apsect" style="width: 50%;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

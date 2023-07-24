@@ -1,7 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EffectIconKeyValue : MonoBehaviour
+[Serializable]
+public class EffectIconKeyValue
 {
     [SerializeField]
     private SpecialEffectType type;

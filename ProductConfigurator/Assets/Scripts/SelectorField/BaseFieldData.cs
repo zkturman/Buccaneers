@@ -8,17 +8,17 @@ public class BaseFieldData
 {
     [SerializeField]
     private string name;
-    public string Name { get => name; }
+    public virtual string Name { get => name; }
     [SerializeField]
-    private int cost;
+    protected int cost;
     public int Cost { get => cost; }
     [SerializeField]
-    private SpecialEffectType effectType = SpecialEffectType.None;
+    protected SpecialEffectType effectType = SpecialEffectType.None;
     public SpecialEffectType EffectType { get => effectType; }
     [SerializeField]
-    private StatType bonusStat = StatType.None;
+    protected StatType bonusStat = StatType.None;
     public StatType BonusStat { get => bonusStat; }
     [SerializeField]
-    private int bonusStatValue = 0;
+    protected int bonusStatValue = 0;
     public int BonusStatValue { get => bonusStatValue; }
 }
