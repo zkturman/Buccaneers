@@ -28,8 +28,9 @@ public class BaseSelectorStrip : MonoBehaviour
         }
         maxVisibleFields = selectorFieldElements.Count;
         hideAllFields();
-        int middleIndex = fieldData.Length / 2; //start by selecting the middle index
-        configureStripUI(middleIndex);
+        currentFieldIndex = fieldData.Length / 2; //start by selecting the middle index
+        configureStripUI(currentFieldIndex);
+        configureArrowButtons();
     }
 
     private void hideAllFields()
@@ -49,12 +50,19 @@ public class BaseSelectorStrip : MonoBehaviour
         int j = 0;  
         for (int i = minimumIndex; i <= maximumIndex; i++)
         {
+            BaseSelectorField field = selectorFieldModels[j];
             if (i >= 0 && i < fieldData.Length)
             {
-                BaseSelectorField field = new BaseSelectorField(selectorFieldElements[j]);
                 field.ConfigureElement(fieldData[i]);
                 field.HideElement(false);
-                field.SelectElement();
+                if (i == currentFieldIndex)
+                {
+                    field.SelectElement();
+                }
+            }
+            else
+            {
+                field.HideElement(true);
             }
             j++;
         }
@@ -64,17 +72,31 @@ public class BaseSelectorStrip : MonoBehaviour
     {
         return rawIndex + middleIndex;
     }
-
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private void configureArrowButtons()
     {
-        
+        VisualElement firstStrip = rootElement.Q("SelectorStrip");
+        Button leftArrow = firstStrip.Q<Button>(leftArrowButtonName);
+        leftArrow.clicked += () => { inputaction(-1); };
+        Button rightArrow = firstStrip.Q<Button>(rightArrowButtonName);
+        rightArrow.clicked += () => { inputaction(1); };
     }
 
-    // Update is called once per frame
-    void Update()
+    private void inputaction(int direction)
     {
-        
+        int newFieldIndex = currentFieldIndex + direction;
+        if (newFieldIndex < 0)
+        {
+            currentFieldIndex = 0;
+        }
+        else if (newFieldIndex >= fieldData.Length)
+        {
+            currentFieldIndex = fieldData.Length - 1;
+        }
+        else
+        {
+            currentFieldIndex = newFieldIndex;
+        }
+        configureStripUI(currentFieldIndex);
     }
 }

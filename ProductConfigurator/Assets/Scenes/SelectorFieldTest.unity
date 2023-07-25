@@ -268,12 +268,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b07f50648338b8409ecff6242181380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testData:
-    name: TestName
-    cost: 20
-    effectType: 5
+  isBeastie: 0
+  baseFieldData:
+    name: Base
+    cost: 5
+    effectType: 2
+    bonusStat: 2
+    bonusStatValue: 3
+  beastieData:
+    name: 
+    cost: 10
+    effectType: 1
     bonusStat: 1
-    bonusStatValue: 10100
+    bonusStatValue: 5
+    type: 1
   selectorFieldClassManager: {fileID: 1341105510}
 --- !u!114 &1341105510 stripped
 MonoBehaviour:

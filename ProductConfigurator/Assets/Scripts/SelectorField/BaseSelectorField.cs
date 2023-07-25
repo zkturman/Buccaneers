@@ -5,8 +5,8 @@ using System.Text;
 using UnityEngine.UIElements;
 public class BaseSelectorField
 {
-    private VisualElement currentElement;
-    private BaseFieldData currentData;
+    protected VisualElement currentElement;
+    protected BaseFieldData currentData;
     private readonly string COST_PREFIX = "Cost";
 
     public BaseSelectorField(VisualElement fieldElement)
@@ -14,14 +14,14 @@ public class BaseSelectorField
         this.currentElement = fieldElement;
         hideName(true);
         hideCost(true);
-        setMainIcon();
     }
 
     public void ConfigureElement(BaseFieldData fieldData)
     {
-        this.currentData = fieldData;
+        currentData = fieldData;
         setName();
         setCostValue();
+        setMainIcon();
         setEffectIcon();
         setStatBonus();
     }
@@ -52,7 +52,7 @@ public class BaseSelectorField
         }
     }
 
-    private void setMainIcon()
+    protected virtual void setMainIcon()
     {
         if (currentElement != null)
         {
@@ -132,6 +132,8 @@ public class BaseSelectorField
         if (currentElement != null)
         {
             currentElement.visible = !shouldHide;
+            hideName(true);
+            hideCost(true);
         }
     }
 

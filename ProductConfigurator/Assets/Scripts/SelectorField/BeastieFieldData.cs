@@ -8,5 +8,6 @@ public class BeastieFieldData : BaseFieldData
 {
     [SerializeField]
     private BeastieType type;
+    public BeastieType Type { get => type; }
     public override string Name { get => BeastieUtils.TypeToString(type); }
 }
