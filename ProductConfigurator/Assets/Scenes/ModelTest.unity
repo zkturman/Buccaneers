@@ -406,7 +406,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654119320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be2c1c06fc258e9478022981fad5b1d4, type: 3}
   m_Name: 
@@ -651,6 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1829398454}
   - component: {fileID: 1829398453}
+  - component: {fileID: 1829398455}
   m_Layer: 5
   m_Name: ModelViewEditor
   m_TagString: Untagged
@@ -689,6 +690,99 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829398455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829398452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91d16d2ee92bed4293f02e70b6ffc80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraView: {fileID: 654119322}
+  objectToOrbit: {fileID: 860656620}
+  degreesPerClick: 90
+  rotationDuration: 0.5
+--- !u!1001 &1918722180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 387028182228398008, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_Name
+      value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.8147497
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.467966
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 42.92306
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387028182228398010, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+--- !u!1 &1918722181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 387028182228398008, guid: d8a70f1712aa5a54ea4c65c0b270480c, type: 3}
+  m_PrefabInstance: {fileID: 1918722180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1918722182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918722181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1097e56c2f96068489bf833822b2c6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButtonName: RotateLeftArrow
+  rightButtonName: RotateRightArrow
+  zoomButtonName: 
 --- !u!1 &1946771181
 GameObject:
   m_ObjectHideFlags: 0
