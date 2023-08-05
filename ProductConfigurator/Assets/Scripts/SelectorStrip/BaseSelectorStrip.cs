@@ -9,28 +9,45 @@ public class BaseSelectorStrip : MonoBehaviour
     [SerializeField]
     private string rightArrowButtonName = "RightArrow";
     private int maxVisibleFields;
-    private List<VisualElement> selectorFieldElements;
-    private List<BaseSelectorField> selectorFieldModels;
+    protected VisualElement rootStripElement;
+    protected List<VisualElement> selectorFieldElements;
+    protected List<ISelectorField> selectorFieldModels;
     [SerializeField]
     private BaseFieldData[] fieldData;
-    private VisualElement rootElement;
+    protected List<IFieldData> genericFieldData;
+    protected VisualElement rootElement;
     private int currentFieldIndex;
 
     private void OnEnable()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
-        VisualElement firstStrip = rootElement.Q("SelectorStrip");
-        selectorFieldElements = firstStrip.Query("SelectorFieldTemplate").ToList();
-        selectorFieldModels = new List<BaseSelectorField>();
+        findRootStripElement();
+        selectorFieldElements = rootStripElement.Query("SelectorFieldTemplate").ToList();
+        createModelList();
+        createDataList();
+        maxVisibleFields = selectorFieldElements.Count;
+        hideAllFields();
+        currentFieldIndex = genericFieldData.Count / 2; //start by selecting the middle index
+        configureStripUI(currentFieldIndex);
+        configureArrowButtons();
+    }
+
+    protected virtual void findRootStripElement()
+    {
+        rootStripElement = rootElement.Q("SelectorStrip");
+    }
+    protected virtual void createModelList()
+    {
+        selectorFieldModels = new List<ISelectorField>();
         for (int i = 0; i < selectorFieldElements.Count; i++)
         {
             selectorFieldModels.Add(new BaseSelectorField(selectorFieldElements[i]));
         }
-        maxVisibleFields = selectorFieldElements.Count;
-        hideAllFields();
-        currentFieldIndex = fieldData.Length / 2; //start by selecting the middle index
-        configureStripUI(currentFieldIndex);
-        configureArrowButtons();
+    }
+
+    protected virtual void createDataList()
+    {
+        genericFieldData = new List<IFieldData>(fieldData);
     }
 
     private void hideAllFields()
@@ -50,10 +67,10 @@ public class BaseSelectorStrip : MonoBehaviour
         int j = 0;  
         for (int i = minimumIndex; i <= maximumIndex; i++)
         {
-            BaseSelectorField field = selectorFieldModels[j];
-            if (i >= 0 && i < fieldData.Length)
+            ISelectorField field = selectorFieldModels[j];
+            if (i >= 0 && i < genericFieldData.Count)
             {
-                field.ConfigureElement(fieldData[i]);
+                field.ConfigureElement(genericFieldData[i]);
                 field.HideElement(false);
                 if (i == currentFieldIndex)
                 {
@@ -75,10 +92,9 @@ public class BaseSelectorStrip : MonoBehaviour
     
     private void configureArrowButtons()
     {
-        VisualElement firstStrip = rootElement.Q("SelectorStrip");
-        Button leftArrow = firstStrip.Q<Button>(leftArrowButtonName);
+        Button leftArrow = rootStripElement.Q<Button>(leftArrowButtonName);
         leftArrow.clicked += () => { inputaction(-1); };
-        Button rightArrow = firstStrip.Q<Button>(rightArrowButtonName);
+        Button rightArrow = rootStripElement.Q<Button>(rightArrowButtonName);
         rightArrow.clicked += () => { inputaction(1); };
     }
 
@@ -89,9 +105,9 @@ public class BaseSelectorStrip : MonoBehaviour
         {
             currentFieldIndex = 0;
         }
-        else if (newFieldIndex >= fieldData.Length)
+        else if (newFieldIndex >= genericFieldData.Count)
         {
-            currentFieldIndex = fieldData.Length - 1;
+            currentFieldIndex = genericFieldData.Count - 1;
         }
         else
         {

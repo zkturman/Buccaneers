@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using UnityEngine.UIElements;
-public class BaseSelectorField
+public class BaseSelectorField : ISelectorField
 {
     protected VisualElement currentElement;
     protected BaseFieldData currentData;
@@ -16,9 +16,9 @@ public class BaseSelectorField
         hideCost(true);
     }
 
-    public void ConfigureElement(BaseFieldData fieldData)
+    public virtual void ConfigureElement(IFieldData fieldData)
     {
-        currentData = fieldData;
+        currentData = fieldData as BaseFieldData;
         setName();
         setCostValue();
         setMainIcon();
@@ -137,7 +137,7 @@ public class BaseSelectorField
         }
     }
 
-    public void SelectElement()
+    public virtual void SelectElement()
     {
         hideName(false);
         hideCost(false);

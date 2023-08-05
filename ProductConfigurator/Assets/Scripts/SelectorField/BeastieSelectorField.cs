@@ -8,9 +8,9 @@ public class BeastieSelectorField : BaseSelectorField
     private BeastieFieldData beastieData;
     public BeastieSelectorField(VisualElement fieldElement) : base(fieldElement) { }
 
-    public void ConfigureElement(BeastieFieldData beastieData)
+    public override void ConfigureElement(IFieldData beastieData)
     {
-        this.beastieData = beastieData;
+        this.beastieData = beastieData as BeastieFieldData;
         base.ConfigureElement(beastieData);
     }
 

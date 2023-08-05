@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class BaseFieldData
+public class BaseFieldData : IFieldData
 {
     [SerializeField]
     private string name;

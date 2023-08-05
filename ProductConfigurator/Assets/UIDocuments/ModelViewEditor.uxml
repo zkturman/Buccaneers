@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
-    <ui:VisualElement style="width: 30%; height: 100%; flex-direction: column-reverse; left: 55%;">
+    <ui:VisualElement class="model-view">
         <ui:VisualElement style="flex-direction: row; height: 15%; justify-content: space-between;">
             <ui:VisualElement style="flex-direction: row; width: 50%;">
                 <ui:Button display-tooltip-when-elided="true" name="RotateLeftArrow" class="arrow-button" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-4528830608231651361&amp;guid=3179dffe714449c49b4b94c3f5e51720&amp;type=3#arrow-left@2x&apos;);" />

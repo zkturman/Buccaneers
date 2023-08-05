@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SelectorStrip" src="project://database/Assets/UIDocuments/SelectorStrip.uxml?fileID=9197481963319205126&amp;guid=8a22dde4f16f0e3468d4062787ede1fd&amp;type=3#SelectorStrip" />
+    <ui:Template name="ModelViewEditor" src="project://database/Assets/UIDocuments/ModelViewEditor.uxml?fileID=9197481963319205126&amp;guid=e0447bf508fee5442bef442c042c1abf&amp;type=3#ModelViewEditor" />
+    <ui:Template name="BeastieStats" src="project://database/Assets/UIDocuments/BeastieStats.uxml?fileID=9197481963319205126&amp;guid=dd02d5b9a78cd6c429f08244669d7569&amp;type=3#BeastieStats" />
+    <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
+        <ui:VisualElement name="SelectorStripParent">
+            <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+            <ui:Instance template="SelectorStrip" name="BeastieStrip" class="selector-strip" />
+            <ui:Instance template="SelectorStrip" name="SelectorStrip" class="selector-strip" />
+            <ui:Instance template="SelectorStrip" name="SelectorStrip" class="selector-strip stat-section" />
+        </ui:VisualElement>
+        <ui:Instance template="ModelViewEditor" name="ModelViewEditor" style="width: 25%; -unity-font-style: bold;" />
+        <ui:VisualElement style="justify-content: center;">
+            <ui:Instance template="BeastieStats" name="BeastieStats" style="background-color: rgb(255, 143, 143);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

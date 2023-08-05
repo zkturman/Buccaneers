@@ -1,9 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:VisualElement>
+        <ui:Label text="Stats" display-tooltip-when-elided="true" class="menu-text menu-title" style="-unity-font-style: bold;" />
+        <ui:VisualElement name="HealthStat" style="flex-direction: row;">
+            <ui:Label text="Health" display-tooltip-when-elided="true" name="HealthStatLabel" class="stat-label" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="HealthStatValue" class="stat-value" />
+            <ui:Label text="+0" display-tooltip-when-elided="true" name="HealthStatBonus" class="stat-bonus" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SpeedStat" style="flex-direction: row;">
+            <ui:Label text="Speed" display-tooltip-when-elided="true" name="SpeedStatLabel" class="stat-label" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="SpeedStatValue" class="stat-value" />
+            <ui:Label text="+0" display-tooltip-when-elided="true" name="SpeedStatBonus" class="stat-bonus" />
+        </ui:VisualElement>
+        <ui:VisualElement name="AttackStat" style="flex-direction: row;">
+            <ui:Label text="Attack" display-tooltip-when-elided="true" name="AttackStatLabel" enable-rich-text="false" class="stat-label" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="AttackStatValue" class="stat-value" />
+            <ui:Label text="+0" display-tooltip-when-elided="true" name="AttackStatBonus" class="stat-bonus" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RangeStat" style="flex-direction: row;">
+            <ui:Label text="Range" display-tooltip-when-elided="true" name="RangeStatLabel" class="stat-label" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="RangeStatValue" class="stat-value" />
+            <ui:Label text="+0" display-tooltip-when-elided="true" name="RangeStatBonus" class="stat-bonus" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SpecialEffects" style="flex-direction: column;">
+            <ui:Label text="Special effects" display-tooltip-when-elided="true" name="SpecialEffectLabel" class="stat-label" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="SpecialEffectList" class="special-effect-item" style="font-size: 30px; left: 5%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
