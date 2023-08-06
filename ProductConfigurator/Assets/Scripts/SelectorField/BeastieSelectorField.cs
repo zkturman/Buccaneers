@@ -16,10 +16,16 @@ public class BeastieSelectorField : BaseSelectorField
 
     protected override void setMainIcon()
     {
-        if (currentData != null)
+        if (CurrentData != null)
         {
             VisualElement mainIcon = currentElement.Q(SelectorFieldClassManager.Classes.MainIconClass);
             mainIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetBeastieIcon(beastieData.Type));
         }
+    }
+
+    public override IFieldData SelectElement()
+    {
+        base.SelectElement();
+        return beastieData;  
     }
 }

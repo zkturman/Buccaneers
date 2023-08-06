@@ -7,5 +7,5 @@ public interface ISelectorField
     public void ConfigureElement(IFieldData fieldData);
 
     public void HideElement(bool shouldHide);
-    public void SelectElement();
+    public IFieldData SelectElement();
 }

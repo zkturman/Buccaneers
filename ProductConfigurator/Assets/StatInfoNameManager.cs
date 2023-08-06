@@ -26,7 +26,7 @@ public class StatInfoNameManager : MonoBehaviour
 
     [SerializeField]
     private string attackStatBonusName = "AttackStatBonus";
-    public string AttackStatBonusName { get => AttackStatBonusName; }
+    public string AttackStatBonusName { get => attackStatBonusName; }
 
     [SerializeField]
     private string rangeStatValueName = "RangeStatValue";

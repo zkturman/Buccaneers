@@ -8,6 +8,8 @@ public class BaseSelectorStrip : MonoBehaviour
     private string leftArrowButtonName = "LeftArrow";
     [SerializeField]
     private string rightArrowButtonName = "RightArrow";
+    [SerializeField]
+    protected StatInfoDisplay statDisplay;
     private int maxVisibleFields;
     protected VisualElement rootStripElement;
     protected List<VisualElement> selectorFieldElements;
@@ -17,6 +19,7 @@ public class BaseSelectorStrip : MonoBehaviour
     protected List<IFieldData> genericFieldData;
     protected VisualElement rootElement;
     private int currentFieldIndex;
+    protected IFieldData previousField;
 
     private void OnEnable()
     {
@@ -74,7 +77,7 @@ public class BaseSelectorStrip : MonoBehaviour
                 field.HideElement(false);
                 if (i == currentFieldIndex)
                 {
-                    field.SelectElement();
+                    selectElement(field);
                 }
             }
             else
@@ -83,6 +86,30 @@ public class BaseSelectorStrip : MonoBehaviour
             }
             j++;
         }
+    }
+
+    protected virtual void selectElement(ISelectorField fieldToSelect)
+    {
+        BaseFieldData newFieldData = getElementData(fieldToSelect) as BaseFieldData;
+        BaseFieldData oldFieldData = previousField as BaseFieldData;
+        StatData newBonus = new StatData(newFieldData.BonusStat, newFieldData.BonusStatValue);
+        StatData oldBonus;
+        if (previousField == null)
+        {
+            oldBonus = new StatData();
+        }
+        else
+        {
+            oldBonus = new StatData(oldFieldData.BonusStat, oldFieldData.BonusStatValue);
+        }
+        statDisplay.AddStatBonus(newBonus, oldBonus);
+        previousField = newFieldData;
+    }
+
+    protected virtual IFieldData getElementData(ISelectorField fieldToSelect)
+    {
+        IFieldData fieldData = fieldToSelect.SelectElement();
+        return fieldData;
     }
 
     private int centerIndex(int rawIndex, int middleIndex)

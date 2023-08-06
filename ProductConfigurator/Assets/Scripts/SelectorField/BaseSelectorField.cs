@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class BaseSelectorField : ISelectorField
 {
     protected VisualElement currentElement;
-    protected BaseFieldData currentData;
+    public BaseFieldData CurrentData { get; private set; }
     private readonly string COST_PREFIX = "Cost";
 
     public BaseSelectorField(VisualElement fieldElement)
@@ -18,7 +18,7 @@ public class BaseSelectorField : ISelectorField
 
     public virtual void ConfigureElement(IFieldData fieldData)
     {
-        currentData = fieldData as BaseFieldData;
+        CurrentData = fieldData as BaseFieldData;
         setName();
         setCostValue();
         setMainIcon();
@@ -63,12 +63,12 @@ public class BaseSelectorField : ISelectorField
 
     private void setEffectIcon()
     {
-        if (currentData != null)
+        if (CurrentData != null)
         {
             VisualElement effectIcon = currentElement.Q(SelectorFieldClassManager.Classes.EffectIconClass);
-            if (currentData.EffectType != SpecialEffectType.None)
+            if (CurrentData.EffectType != SpecialEffectType.None)
             {
-                effectIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetEffectIcon(currentData.EffectType));
+                effectIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetEffectIcon(CurrentData.EffectType));
             }
             else
             {
@@ -79,14 +79,14 @@ public class BaseSelectorField : ISelectorField
 
     private void setStatBonus()
     {
-        if (currentData != null)
+        if (CurrentData != null)
         {
             VisualElement statIcon = currentElement.Q(SelectorFieldClassManager.Classes.StatBonusIconClass);
             Label statLabel = currentElement.Q<Label>(SelectorFieldClassManager.Classes.StatBonusValueClass);
-            if (currentData.BonusStat != StatType.None)
+            if (CurrentData.BonusStat != StatType.None)
             {
-                statIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetStatIcon(currentData.BonusStat));
-                statLabel.text = currentData.BonusStatValue.ToString();
+                statIcon.style.backgroundImage = new StyleBackground(IconManager.Icons.GetStatIcon(CurrentData.BonusStat));
+                statLabel.text = CurrentData.BonusStatValue.ToString();
             }
             else
             {
@@ -98,23 +98,23 @@ public class BaseSelectorField : ISelectorField
 
     private void setName()
     {
-        if (currentData != null)
+        if (CurrentData != null)
         {
             string fieldName = SelectorFieldClassManager.Classes.NameLabelClass;
-            string elementName = currentData.Name;
+            string elementName = CurrentData.Name;
             setLabel(fieldName, elementName);
         }
     }
 
     private void setCostValue()
     {
-        if (currentData != null)
+        if (CurrentData != null)
         {
             string valueName = SelectorFieldClassManager.Classes.CostLabelClass;
             StringBuilder builder = new StringBuilder();
             builder.Append(COST_PREFIX);
             builder.Append(": ");
-            builder.Append(currentData.Cost.ToString());
+            builder.Append(CurrentData.Cost.ToString());
             setLabel(valueName, builder.ToString());
         }
     }
@@ -137,9 +137,10 @@ public class BaseSelectorField : ISelectorField
         }
     }
 
-    public virtual void SelectElement()
+    public virtual IFieldData SelectElement()
     {
         hideName(false);
         hideCost(false);
+        return CurrentData;
     }
 }
