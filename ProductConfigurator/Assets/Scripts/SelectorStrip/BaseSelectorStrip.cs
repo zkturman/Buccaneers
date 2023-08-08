@@ -9,7 +9,8 @@ public class BaseSelectorStrip : MonoBehaviour
     [SerializeField]
     private string rightArrowButtonName = "RightArrow";
     [SerializeField]
-    protected StatInfoDisplay statDisplay;
+    protected UIUpdateController uiUpdater;
+    //protected StatInfoDisplay statDisplay;
     private int maxVisibleFields;
     protected VisualElement rootStripElement;
     protected List<VisualElement> selectorFieldElements;
@@ -91,18 +92,7 @@ public class BaseSelectorStrip : MonoBehaviour
     protected virtual void selectElement(ISelectorField fieldToSelect)
     {
         BaseFieldData newFieldData = getElementData(fieldToSelect) as BaseFieldData;
-        BaseFieldData oldFieldData = previousField as BaseFieldData;
-        StatData newBonus = new StatData(newFieldData.BonusStat, newFieldData.BonusStatValue);
-        StatData oldBonus;
-        if (previousField == null)
-        {
-            oldBonus = new StatData();
-        }
-        else
-        {
-            oldBonus = new StatData(oldFieldData.BonusStat, oldFieldData.BonusStatValue);
-        }
-        statDisplay.AddStatBonus(newBonus, oldBonus);
+        uiUpdater.SelectElement(newFieldData, previousField);
         previousField = newFieldData;
     }
 

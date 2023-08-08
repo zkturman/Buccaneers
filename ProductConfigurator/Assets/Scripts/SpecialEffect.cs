@@ -9,6 +9,9 @@ public class SpecialEffect
         string typeText;
         switch (typeToConvert)
         {
+            case SpecialEffectType.None:
+                typeText = typeToConvert.ToString();
+                break;
             case SpecialEffectType.Reverse:
                 typeText = typeToConvert.ToString();
                 break;
@@ -28,5 +31,17 @@ public class SpecialEffect
                 throw new System.Exception("Invalid Special Effect type parsed.");
         }
         return typeText;
+    }
+
+    public static Dictionary<SpecialEffectType, int> GenerateCounterMap()
+    {
+        Dictionary<SpecialEffectType, int> counterMap = new Dictionary<SpecialEffectType, int>();
+        counterMap.Add(SpecialEffectType.Reverse, 0);
+        counterMap.Add(SpecialEffectType.Toxic, 0);
+        counterMap.Add(SpecialEffectType.DoubleHit, 0);
+        counterMap.Add(SpecialEffectType.Swift, 0);
+        counterMap.Add(SpecialEffectType.Guard, 0);
+        counterMap.Add(SpecialEffectType.None, 0);
+        return counterMap;
     }
 }

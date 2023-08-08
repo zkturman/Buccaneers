@@ -35,6 +35,9 @@ public class StatInfoNameManager : MonoBehaviour
     [SerializeField]
     private string rangeStatBonuseName = "RangeStatBonus";
     public string RangeStatBonusName { get => rangeStatBonuseName; }
+    [SerializeField]
+    private string specialEffectList = "SpecialEffectList";
+    public string SpecialEffectList { get => specialEffectList; }
 
     public static StatInfoNameManager Names;
 
