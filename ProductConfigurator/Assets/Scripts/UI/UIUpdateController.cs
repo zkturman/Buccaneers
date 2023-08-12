@@ -10,6 +10,7 @@ public class UIUpdateController : MonoBehaviour
     private DoubloonCostManager costDisplay;
     [SerializeField]
     private BeastieModelPicker beastiePicker;
+    
     public void SelectElement(IFieldData newFieldData, IFieldData oldFieldData)
     {
         StatData newBonus = new StatData(newFieldData.BonusStat, newFieldData.BonusStatValue);
@@ -39,5 +40,11 @@ public class UIUpdateController : MonoBehaviour
     {
         SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
         beastiePicker.SelectModel(newFieldData.Type);
+    }
+
+    public void SelectElement(ColourFieldData newFieldData, ColourFieldData oldFieldData)
+    {
+        SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
+        beastiePicker.SetColour(newFieldData.Colour);
     }
 }

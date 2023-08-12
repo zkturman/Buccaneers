@@ -13,4 +13,5 @@ public class BeastieFieldData : BaseFieldData
 
     [SerializeField]
     private ColourType[] availableColours;
+    public ColourType[] AvailableColours { get => availableColours; }
 }

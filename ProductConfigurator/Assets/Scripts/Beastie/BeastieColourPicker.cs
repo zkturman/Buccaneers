@@ -8,8 +8,7 @@ public class BeastieColourPicker : MonoBehaviour
     private Material defaultMaterial;
     private BeastieColourManager colourManager;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         beastieModel = GetComponentInChildren<Renderer>();
         colourManager = GetComponentInParent<BeastieColourManager>();

@@ -15,6 +15,9 @@ public class IconManager : MonoBehaviour
     private StatIconKeyValue[] StatIcons;
     private Dictionary<StatType, Sprite> statMap;
     [SerializeField]
+    private ColourIconKeyValue[] ColourIcons;
+    private Dictionary<ColourType, Sprite> colourMap;
+    [SerializeField]
     private Sprite defaultIcon;
 
     public static IconManager Icons;
@@ -24,6 +27,7 @@ public class IconManager : MonoBehaviour
         beastieMap = BeastieIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         effectMap = SpecialEffectIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         statMap = StatIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
+        colourMap = ColourIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         Icons = this;
     }
 
@@ -55,6 +59,16 @@ public class IconManager : MonoBehaviour
             statIcon = statMap[typeToGet];
         }
         return statIcon;
+    }
+
+    public Sprite GetColourIcon(ColourType typeToGet)
+    {
+        Sprite colourIcon = null;
+        if (colourMap.ContainsKey(typeToGet))
+        {
+            colourIcon = colourMap[typeToGet];
+        }
+        return colourIcon;
     }
 
     public Sprite GetDefaultIcon()

@@ -10,7 +10,6 @@ public class BaseSelectorStrip : MonoBehaviour
     private string rightArrowButtonName = "RightArrow";
     [SerializeField]
     protected UIUpdateController uiUpdater;
-    //protected StatInfoDisplay statDisplay;
     private int maxVisibleFields;
     protected VisualElement rootStripElement;
     protected List<VisualElement> selectorFieldElements;
@@ -22,18 +21,28 @@ public class BaseSelectorStrip : MonoBehaviour
     private int currentFieldIndex;
     protected IFieldData previousField;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
+    {
+        initiateStrip();
+        populateInitialStrip();
+    }
+
+    protected void initiateStrip()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
         findRootStripElement();
         selectorFieldElements = rootStripElement.Query("SelectorFieldTemplate").ToList();
         createModelList();
-        createDataList();
         maxVisibleFields = selectorFieldElements.Count;
         hideAllFields();
+        configureArrowButtons();
+    }
+
+    protected void populateInitialStrip()
+    {
+        createDataList();
         currentFieldIndex = genericFieldData.Count / 2; //start by selecting the middle index
         configureStripUI(currentFieldIndex);
-        configureArrowButtons();
     }
 
     protected virtual void findRootStripElement()
@@ -52,6 +61,13 @@ public class BaseSelectorStrip : MonoBehaviour
     protected virtual void createDataList()
     {
         genericFieldData = new List<IFieldData>(fieldData);
+        int middleIndex = getCenterDataIndex();
+        genericFieldData.Insert(middleIndex, new BaseFieldData());
+    }
+
+    protected int getCenterDataIndex()
+    {
+        return (genericFieldData.Count + 1) / 2;
     }
 
     private void hideAllFields()

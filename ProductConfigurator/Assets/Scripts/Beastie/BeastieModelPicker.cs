@@ -32,6 +32,14 @@ public class BeastieModelPicker : MonoBehaviour
         {
             GameObject.Destroy(currentModel);
         }
-        currentModel = Instantiate(prefabToCreate, this.transform);
+        if (prefabToCreate != null)
+        {
+            currentModel = Instantiate(prefabToCreate, this.transform);
+        }
+    }
+
+    public void SetColour(ColourType colourToSet)
+    {
+        currentModel?.GetComponent<BeastieColourPicker>().SetColourMaterial(colourToSet);
     }
 }

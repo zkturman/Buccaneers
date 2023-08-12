@@ -8,6 +8,8 @@ public class BeastieSelectorStrip : BaseSelectorStrip
     [SerializeField]
     private string beastieStripName;
     [SerializeField]
+    private ColourSelectorStrip colourStrip;
+    [SerializeField]
     private BeastieFieldData[] beastieData;
 
     protected override void findRootStripElement()
@@ -17,6 +19,8 @@ public class BeastieSelectorStrip : BaseSelectorStrip
     protected override void createDataList()
     {
         genericFieldData = new List<IFieldData>(beastieData);
+        int middleIndex = getCenterDataIndex();
+        genericFieldData.Insert(middleIndex, new BeastieFieldData());
     }
 
     protected override void createModelList()
@@ -33,5 +37,6 @@ public class BeastieSelectorStrip : BaseSelectorStrip
         BeastieFieldData newFieldData = getElementData(fieldToSelect) as BeastieFieldData;
         uiUpdater.SelectElement(newFieldData, (BeastieFieldData)previousField);
         previousField = newFieldData;
+        colourStrip.SetBeastieColours(newFieldData.AvailableColours);
     }
 }

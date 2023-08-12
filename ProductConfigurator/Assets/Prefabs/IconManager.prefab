@@ -87,4 +87,19 @@ MonoBehaviour:
     value: {fileID: 21300000, guid: e51cc85e0ee52da40934a97cf4232129, type: 3}
   - type: 4
     value: {fileID: 21300000, guid: b5001f6c482a0404ba029551518d11b8, type: 3}
+  ColourIcons:
+  - type: 0
+    value: {fileID: 21300000, guid: b3852c18ee5d97a4aaf11f1d370d2138, type: 3}
+  - type: 1
+    value: {fileID: 21300000, guid: 9e0562bba91567143977c73e2c12b866, type: 3}
+  - type: 2
+    value: {fileID: 21300000, guid: 8e889a120f6ac3c4fa38c1a236c81607, type: 3}
+  - type: 3
+    value: {fileID: 21300000, guid: feb8b249d7285c34f814ea7461689345, type: 3}
+  - type: 4
+    value: {fileID: 21300000, guid: 641d67f6ba3e53948bf52df684b0c12c, type: 3}
+  - type: 5
+    value: {fileID: 21300000, guid: 08928d430563b0e43ad0c1a1f3554c39, type: 3}
+  - type: 6
+    value: {fileID: 21300000, guid: cc79c92f0fdfd6047b0543c25bb4552d, type: 3}
   defaultIcon: {fileID: 21300000, guid: 023f3fbff6cf3f24bab072f314250d7d, type: 3}
