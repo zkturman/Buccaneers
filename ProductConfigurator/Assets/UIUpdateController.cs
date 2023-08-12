@@ -8,7 +8,9 @@ public class UIUpdateController : MonoBehaviour
     private StatInfoDisplay statDisplay;
     [SerializeField]
     private DoubloonCostManager costDisplay;
-    public virtual void SelectElement(IFieldData newFieldData, IFieldData oldFieldData)
+    [SerializeField]
+    private BeastieModelPicker beastiePicker;
+    public void SelectElement(IFieldData newFieldData, IFieldData oldFieldData)
     {
         StatData newBonus = new StatData(newFieldData.BonusStat, newFieldData.BonusStatValue);
         SpecialEffectType newType = newFieldData.EffectType;
@@ -31,5 +33,11 @@ public class UIUpdateController : MonoBehaviour
         statDisplay.AddStatBonus(newBonus, oldBonus);
         statDisplay.AddSpecialEffect(newType, oldType);
         costDisplay.UpdateCost(newCost, oldCost);
+    }
+
+    public void SelectElement(BeastieFieldData newFieldData, BeastieFieldData oldFieldData)
+    {
+        SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
+        beastiePicker.SelectModel(newFieldData.Type);
     }
 }

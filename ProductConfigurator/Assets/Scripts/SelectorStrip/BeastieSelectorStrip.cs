@@ -27,4 +27,11 @@ public class BeastieSelectorStrip : BaseSelectorStrip
             selectorFieldModels.Add(new BeastieSelectorField(selectorFieldElements[i]));
         }
     }
+
+    protected override void selectElement(ISelectorField fieldToSelect)
+    {
+        BeastieFieldData newFieldData = getElementData(fieldToSelect) as BeastieFieldData;
+        uiUpdater.SelectElement(newFieldData, (BeastieFieldData)previousField);
+        previousField = newFieldData;
+    }
 }
