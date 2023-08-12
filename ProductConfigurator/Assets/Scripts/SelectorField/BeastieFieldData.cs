@@ -10,4 +10,7 @@ public class BeastieFieldData : BaseFieldData
     private BeastieType type;
     public BeastieType Type { get => type; }
     public override string Name { get => BeastieUtils.TypeToString(type); }
+
+    [SerializeField]
+    private ColourType[] availableColours;
 }
