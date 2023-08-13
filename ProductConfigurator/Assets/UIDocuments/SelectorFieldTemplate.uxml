@@ -2,13 +2,13 @@
     <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
     <ui:VisualElement name="Parent" class="selector-field-parent">
         <ui:Label text="&lt;Name&gt;" display-tooltip-when-elided="true" name="NameLabel" class="selector-field-text" />
-        <ui:VisualElement name="SelectorField" style="width: 75%; height: 75%; justify-content: center; align-items: center;">
-            <ui:VisualElement name="MainIcon" class="icon-aspect icon-apsect" style="width: 60%; height: 60%;" />
-            <ui:VisualElement name="SecondaryIcons" style="height: 25%; width: 100%; flex-direction: row; justify-content: space-between;">
-                <ui:VisualElement name="SpecialEffectIcon" class="icon-aspect icon-apsect" style="width: 25%;" />
-                <ui:VisualElement name="StatBonusSection" style="flex-direction: row; width: 50%;">
-                    <ui:Label text="[Int]" display-tooltip-when-elided="true" name="StatBonusValue" class="stat-bonus-text" style="width: 50%;" />
-                    <ui:VisualElement name="StatBonusIcon" class="icon-aspect icon-apsect" style="width: 50%;" />
+        <ui:VisualElement name="SelectorField" style="width: 100%; height: 75%; justify-content: space-between; align-items: center;">
+            <ui:VisualElement name="MainIcon" class="icon-aspect icon-apsect field-main-icon" />
+            <ui:VisualElement name="SecondaryIcons" style="height: 25%; width: 90%; flex-direction: row; justify-content: space-between;">
+                <ui:VisualElement name="SpecialEffectIcon" class="icon-aspect icon-apsect field-effect-icon" />
+                <ui:VisualElement name="StatBonusSection" style="flex-direction: row;">
+                    <ui:Label text="[Int]" display-tooltip-when-elided="true" name="StatBonusValue" class="stat-bonus-text" />
+                    <ui:VisualElement name="StatBonusIcon" class="icon-aspect icon-apsect field-bonus-icon" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

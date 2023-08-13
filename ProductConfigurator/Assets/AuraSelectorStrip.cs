@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Linq;
 
-public class ColourSelectorStrip : BaseSelectorStrip
+public class AuraSelectorStrip : BaseSelectorStrip
 {
     [SerializeField]
-    private string colourStripName;
+    private string auraStripName;
     [SerializeField]
-    private ColourFieldData[] colourData;
-    private Dictionary<ColourType, ColourFieldData> colourDataMap;
-    private ColourFieldData[] beastieSpecificData;
+    private AuraFieldData[] auraData;
+    private Dictionary<AuraType, AuraFieldData> auraDataMap;
+    private AuraFieldData[] beastieSpecificData;
     private bool isInitiated = false;
 
     protected override void OnEnable()
     {
         tryInitiateStrip();
-        colourDataMap = colourData.ToDictionary(data => data.Colour, data => data);
+        auraDataMap = auraData.ToDictionary(data => data.Aura, data => data);
     }
 
     private void tryInitiateStrip()
@@ -29,34 +29,34 @@ public class ColourSelectorStrip : BaseSelectorStrip
         }
     }
 
-    public void SetBeastieColours(ColourType[] availableColours)
+    public void SetBeastieAura(AuraType[] availableAura)
     {
         tryInitiateStrip();
-        if (availableColours != null)
+        if (availableAura != null)
         {
-            beastieSpecificData = new ColourFieldData[availableColours.Length];
-            for (int i = 0; i < availableColours.Length; i++)
+            beastieSpecificData = new AuraFieldData[availableAura.Length];
+            for (int i = 0; i < availableAura.Length; i++)
             {
-                beastieSpecificData[i] = colourDataMap[availableColours[i]];
+                beastieSpecificData[i] = auraDataMap[availableAura[i]];
             }
         }
         else
         {
-            beastieSpecificData = new ColourFieldData[0];
+            beastieSpecificData = new AuraFieldData[0];
         }
         populateInitialStrip();
     }
 
     protected override void findRootStripElement()
     {
-        rootStripElement = rootElement.Q(colourStripName);
+        rootStripElement = rootElement.Q(auraStripName);
     }
 
     protected override void createDataList()
     {
         genericFieldData = new List<IFieldData>(beastieSpecificData);
         int middleIndex = getCenterDataIndex();
-        genericFieldData.Insert(middleIndex, new ColourFieldData());
+        genericFieldData.Insert(middleIndex, new AuraFieldData());
     }
 
     protected override void createModelList()
@@ -64,14 +64,14 @@ public class ColourSelectorStrip : BaseSelectorStrip
         selectorFieldModels = new List<ISelectorField>();
         for (int i = 0; i < selectorFieldElements.Count; i++)
         {
-            selectorFieldModels.Add(new ColourSelectorField(selectorFieldElements[i]));
+            selectorFieldModels.Add(new AuraSelectorField(selectorFieldElements[i]));
         }
     }
 
     protected override void selectElement(ISelectorField fieldToSelect)
     {
-        ColourFieldData newFieldData = getElementData(fieldToSelect) as ColourFieldData;
-        uiUpdater.SelectElement(newFieldData, (ColourFieldData)previousField);
+        AuraFieldData newFieldData = getElementData(fieldToSelect) as AuraFieldData;
+        uiUpdater.SelectElement(newFieldData, (AuraFieldData)previousField);
         previousField = newFieldData;
     }
 }

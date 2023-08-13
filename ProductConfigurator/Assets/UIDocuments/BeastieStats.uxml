@@ -24,7 +24,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="SpecialEffects" style="flex-direction: column;">
             <ui:Label text="Special effects" display-tooltip-when-elided="true" name="SpecialEffectLabel" class="stat-label" />
-            <ui:Label text="Label" display-tooltip-when-elided="true" name="SpecialEffectList" class="special-effect-item" style="font-size: 30px; left: 5%;" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="SpecialEffectList" class="special-effect-item" style="left: 5%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

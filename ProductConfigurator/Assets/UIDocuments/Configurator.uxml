@@ -7,7 +7,7 @@
         <ui:VisualElement name="MenuTitle" style="flex-grow: 1; height: 10%;">
             <ui:Label text="Pick yur Beastie" display-tooltip-when-elided="true" class="menu-title heading-font" style="-unity-text-align: upper-center; font-size: 150px; height: 100%; flex-grow: 1;" />
         </ui:VisualElement>
-        <ui:VisualElement name="MenuBody" style="flex-direction: row; justify-content: space-between; flex-grow: 1; height: 90%;">
+        <ui:VisualElement name="MenuBody" style="flex-direction: row; justify-content: space-between; flex-grow: 1; height: 90%; margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 50px;">
             <ui:VisualElement name="SelectorStripParent">
                 <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
                 <ui:Instance template="SelectorStrip" name="BeastieStrip" class="selector-strip">
@@ -16,11 +16,13 @@
                 <ui:Instance template="SelectorStrip" name="ColourStrip" class="selector-strip">
                     <AttributeOverrides element-name="StripTitle" text="Colour" />
                 </ui:Instance>
-                <ui:Instance template="SelectorStrip" name="SelectorStrip" class="selector-strip stat-section" />
+                <ui:Instance template="SelectorStrip" name="AuraStrip" class="selector-strip">
+                    <AttributeOverrides element-name="StripTitle" text="Aura" />
+                </ui:Instance>
             </ui:VisualElement>
             <ui:Instance template="ModelViewEditor" name="ModelViewEditor" style="width: 25%; -unity-font-style: bold;" />
             <ui:VisualElement name="ConfigurationInfo" style="justify-content: space-between; width: 25%;">
-                <ui:VisualElement name="CostSection" style="flex-direction: row; align-items: flex-start; justify-content: space-between; background-color: rgb(255, 143, 143);">
+                <ui:VisualElement name="CostSection" class="menu-panel-style" style="flex-direction: row; align-items: flex-start; justify-content: space-between;">
                     <ui:VisualElement name="DoubloonSection" style="flex-direction: row; align-items: center; width: 75%; justify-content: flex-end;">
                         <ui:Label text="Doubloons:" display-tooltip-when-elided="true" name="DoubloonLabel" class="menu-title heading-font" style="-unity-text-align: upper-right;" />
                     </ui:VisualElement>
@@ -31,7 +33,7 @@
                         <ui:Label text="0" display-tooltip-when-elided="true" name="PredictedTotal" class="menu-title" style="-unity-text-align: upper-right;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Instance template="BeastieStats" name="BeastieStats" style="background-color: rgb(255, 143, 143);" />
+                <ui:Instance template="BeastieStats" name="BeastieStats" style="background-color: rgba(202, 202, 202, 0.28); border-top-color: rgb(144, 42, 0); border-bottom-color: rgb(144, 42, 0); border-left-width: 0; border-right-width: 0; border-top-width: 15px; border-bottom-width: 15px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-left-color: rgb(144, 42, 0); border-right-color: rgb(144, 42, 0);" />
                 <ui:VisualElement name="ConfirmButton" />
             </ui:VisualElement>
         </ui:VisualElement>

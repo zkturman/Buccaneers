@@ -1,12 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
     <ui:VisualElement class="model-view">
-        <ui:VisualElement style="flex-direction: row; height: 15%; justify-content: space-between;">
-            <ui:VisualElement style="flex-direction: row; width: 50%;">
-                <ui:Button display-tooltip-when-elided="true" name="RotateLeftArrow" class="arrow-button" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-4528830608231651361&amp;guid=3179dffe714449c49b4b94c3f5e51720&amp;type=3#arrow-left@2x&apos;);" />
-                <ui:Button display-tooltip-when-elided="true" name="RotateRightArrow" class="arrow-button" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=3179dffe714449c49b4b94c3f5e51720&amp;type=3#arrow-right@2x&apos;);" />
+        <ui:VisualElement style="flex-direction: row; height: 15%; justify-content: space-between; align-items: center;">
+            <ui:VisualElement style="flex-direction: row; width: 50%; justify-content: center; margin-left: 16px; margin-right: 16px; align-items: center;">
+                <ui:VisualElement style="flex-direction: row; justify-content: space-between; width: 75%; align-items: center;">
+                    <ui:Button display-tooltip-when-elided="true" name="RotateLeftArrow" class="arrow-button" style="background-image: url(&apos;project://database/Assets/AssetPacks/UXWingIcons/arrow-curved-right-icon.png?fileID=2800000&amp;guid=6de5eb0ebcf9ee9489f69546ebd56da5&amp;type=3#arrow-curved-right-icon&apos;); width: 128px; height: 128px;" />
+                    <ui:Button display-tooltip-when-elided="true" name="RotateRightArrow" class="arrow-button" style="background-image: url(&apos;project://database/Assets/AssetPacks/UXWingIcons/arrow-curved-left-icon.png?fileID=2800000&amp;guid=b01e9225dc4ecd242bc0bbb3b7cd3fb7&amp;type=3#arrow-curved-left-icon&apos;); width: 128px; height: 128px;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Button display-tooltip-when-elided="true" name="ZoomButton" class="menu-button" style="width: 25%; background-image: url(&apos;project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconaddedlocal@2x.png?fileID=2800000&amp;guid=02800fb9cff14da47a04572790384d8b&amp;type=3#d_iconaddedlocal@2x&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="ZoomButton" class="menu-button" style="width: 128px; background-image: url(&apos;project://database/Assets/AssetPacks/UXWingIcons/small-screen-arrow-icon.png?fileID=2800000&amp;guid=55f537addfbdc9c468f17bb545a9f2ee&amp;type=3#small-screen-arrow-icon&apos;); height: 128px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

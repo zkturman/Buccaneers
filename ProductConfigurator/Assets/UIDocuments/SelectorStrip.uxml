@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:Template name="SelectorField" src="project://database/Assets/UIDocuments/SelectorFieldTemplate.uxml?fileID=9197481963319205126&amp;guid=e099d3e8653795a4da2600bcff72d887&amp;type=3#SelectorField" />
+    <ui:Template name="SelectorField" src="project://database/Assets/UIDocuments/SelectorFieldTemplate.uxml?fileID=9197481963319205126&amp;guid=e099d3e8653795a4da2600bcff72d887&amp;type=3#SelectorFieldTemplate" />
     <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
     <ui:VisualElement name="Parent" class="selector-strip-parent" style="flex-direction: column;">
-        <ui:Label text="Label" display-tooltip-when-elided="true" name="StripTitle" class="heading-font" />
-        <ui:VisualElement name="StripAndButtons" style="flex-grow: 1; flex-direction: row; align-items: center; height: 100%;">
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="StripTitle" class="heading-font" style="-unity-text-align: upper-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:VisualElement name="StripAndButtons" class="strip-background-style" style="flex-grow: 1; flex-direction: row; align-items: center; height: 100%;">
             <ui:Button display-tooltip-when-elided="true" name="LeftArrow" class="arrow-button" />
             <ui:VisualElement name="SelectorFieldContainer" class="selector-field-container">
                 <ui:VisualElement name="SelectorField0" class="selector-field" style="overflow: hidden;">
@@ -22,7 +22,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="SelectorField4" class="selector-field">
                     <ui:VisualElement name="RightObscuringElement" style="width: 50%; overflow: hidden; flex-grow: 1; justify-content: center;">
-                        <ui:Instance template="SelectorField" name="SelectorFieldTemplate" style="width: 200%;" />
+                        <ui:Instance template="SelectorField" name="SelectorFieldTemplate" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

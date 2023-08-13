@@ -42,4 +42,9 @@ public class BeastieModelPicker : MonoBehaviour
     {
         currentModel?.GetComponent<BeastieColourPicker>().SetColourMaterial(colourToSet);
     }
+
+    public void SetAura(AuraType auraToSet)
+    {
+        currentModel?.GetComponent<BeastieAuraPicker>().SetAura(auraToSet);
+    }
 }

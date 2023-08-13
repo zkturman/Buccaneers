@@ -10,6 +10,8 @@ public class BeastieSelectorStrip : BaseSelectorStrip
     [SerializeField]
     private ColourSelectorStrip colourStrip;
     [SerializeField]
+    private AuraSelectorStrip auraStrip;
+    [SerializeField]
     private BeastieFieldData[] beastieData;
 
     protected override void findRootStripElement()
@@ -38,5 +40,6 @@ public class BeastieSelectorStrip : BaseSelectorStrip
         uiUpdater.SelectElement(newFieldData, (BeastieFieldData)previousField);
         previousField = newFieldData;
         colourStrip.SetBeastieColours(newFieldData.AvailableColours);
+        auraStrip.SetBeastieAura(newFieldData.AvailableAura);
     }
 }

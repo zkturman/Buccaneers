@@ -47,4 +47,10 @@ public class UIUpdateController : MonoBehaviour
         SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
         beastiePicker.SetColour(newFieldData.Colour);
     }
+
+    public void SelectElement(AuraFieldData newFieldData, AuraFieldData oldFieldData)
+    {
+        SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
+        beastiePicker.SetAura(newFieldData.Aura);
+    }
 }
