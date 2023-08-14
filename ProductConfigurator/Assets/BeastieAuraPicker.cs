@@ -7,23 +7,16 @@ public class BeastieAuraPicker : MonoBehaviour
     [SerializeField]
     private Transform auraParent;
     private GameObject currentAura;
-    private BeastieAuraManager auraManager;
 
-    private void Awake()
+    public void SetAura(GameObject auraToSet)
     {
-        auraManager = GetComponentInParent<BeastieAuraManager>();
-    }
-
-    public void SetAura(AuraType auraToSet)
-    {
-        GameObject auraPrefab = auraManager.GetAuraObject(auraToSet);
         if (currentAura != null)
         {
             Destroy(currentAura);
         }
-        if (auraPrefab != null)
+        if (auraToSet != null)
         {
-            currentAura = Instantiate(auraPrefab, auraParent);
+            currentAura = Instantiate(auraToSet, auraParent);
         }
         else
         {

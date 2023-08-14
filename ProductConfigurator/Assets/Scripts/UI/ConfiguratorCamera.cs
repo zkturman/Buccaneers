@@ -17,7 +17,7 @@ public class ConfiguratorCamera : MonoBehaviour
     [SerializeField]
     private GameObject beastieObject;
     [SerializeField]
-    private Material fadingMaterial;
+    private ModelSwitcher modelSwitcher;
     [SerializeField]
     private GameObject objectToOrbit;
     [SerializeField]
@@ -27,6 +27,10 @@ public class ConfiguratorCamera : MonoBehaviour
     private Button rotateLeftButton;
     private Button rotateRightButton;
     private Button zoomButton;
+    [SerializeField]
+    private Sprite zoomInIcon;
+    [SerializeField]
+    private Sprite zoomOutIcon;
 
     private void OnEnable()
     {
@@ -55,12 +59,6 @@ public class ConfiguratorCamera : MonoBehaviour
     private void revolveCamera(int direction)
     {
         objectToOrbit.transform.Rotate(new Vector3(0, degreesPerClick * direction, 0));
-        //sceneCameras = cameraParent.GetComponentsInChildren<CinemachineVirtualCamera>();
-        ////foreach(CinemachineVirtualCamera camera in sceneCameras)
-        ////{
-        ////    camera.transform.RotateAround(objectToOrbit.transform.position, objectToOrbit.transform.up, degreesPerClick);
-        ////}
-        //StartCoroutine(revolveRoutine(direction));
     }
 
     private IEnumerator revolveRoutine(int direction)
@@ -83,30 +81,23 @@ public class ConfiguratorCamera : MonoBehaviour
 
     private void zoomButtonClick()
     {
-        if (zoomedOutCamera.Priority == zoomedOutPriority)
+        modelSwitcher.SwitchModels();
+        if (isZoomedOut())
         {
             zoomedOutCamera.Priority = 0;
+            zoomButton.style.backgroundImage = new StyleBackground(zoomOutIcon);
         }
         else
         {
            zoomedOutCamera.Priority = zoomedOutPriority;
+            zoomButton.style.backgroundImage = new StyleBackground(zoomInIcon);
         }
-        //StartCoroutine(zoomRoutine());
     }
 
-    //private IEnumerator zoomRoutine()
-    //{
-    //    float outWeight = cameraView.GetWeight(0);
-    //    float inWeight = cameraView.GetWeight(1);
-    //    int numberOfSteps = 10;
-    //    float stepTime = zoomDuration / numberOfSteps;
-    //    for (int i = 1; i <= numberOfSteps; i++)
-    //    {
-    //        cameraView.SetWeight(0, Mathf.Lerp(outWeight, inWeight, (float)i / numberOfSteps));
-    //        cameraView.SetWeight(1, Mathf.Lerp(inWeight, outWeight, (float)i / numberOfSteps));
-    //        yield return new WaitForSeconds(stepTime);
-    //    }
-    //}
+    private bool isZoomedOut()
+    {
+        return zoomedOutCamera.Priority == zoomedOutPriority;
+    }
 
     // Start is called before the first frame update
     void Start()

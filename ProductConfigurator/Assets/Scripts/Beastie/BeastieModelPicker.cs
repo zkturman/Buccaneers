@@ -9,6 +9,10 @@ public class BeastieModelPicker : MonoBehaviour
     [SerializeField]
     private BeastieModelKeyValue[] beastieModels;
     private GameObject currentModel;
+    [SerializeField]
+    private BeastieColourManager colourManager;
+    [SerializeField]
+    private BeastieAuraManager auraManager;
     
     public void SelectModel(BeastieType typeToSelect)
     {
@@ -40,11 +44,13 @@ public class BeastieModelPicker : MonoBehaviour
 
     public void SetColour(ColourType colourToSet)
     {
-        currentModel?.GetComponent<BeastieColourPicker>().SetColourMaterial(colourToSet);
+        Texture2D textureToSet = colourManager.GetTexture(colourToSet);
+        currentModel?.GetComponent<BeastieColourPicker>().SetColourMaterial(textureToSet);
     }
 
     public void SetAura(AuraType auraToSet)
     {
-        currentModel?.GetComponent<BeastieAuraPicker>().SetAura(auraToSet);
+        GameObject auraPrefab = auraManager.GetAuraObject(auraToSet);
+        currentModel?.GetComponent<BeastieAuraPicker>().SetAura(auraPrefab);
     }
 }
