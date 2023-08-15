@@ -29,7 +29,7 @@
                     <ui:VisualElement name="CostEquation" style="width: 50%;">
                         <ui:Label text="999" display-tooltip-when-elided="true" name="DoubloonAmount" class="menu-title" style="-unity-text-align: upper-right;" />
                         <ui:Label text="- 0" display-tooltip-when-elided="true" name="CostSubtraction" class="menu-title" style="-unity-text-align: upper-right;" />
-                        <ui:VisualElement name="SubtractionLine" style="border-top-width: 20px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+                        <ui:VisualElement name="SubtractionLine" style="border-top-width: 20px; border-left-color: rgb(144, 42, 0); border-right-color: rgb(144, 42, 0); border-top-color: rgb(144, 42, 0); border-bottom-color: rgb(144, 42, 0);" />
                         <ui:Label text="0" display-tooltip-when-elided="true" name="PredictedTotal" class="menu-title" style="-unity-text-align: upper-right;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
