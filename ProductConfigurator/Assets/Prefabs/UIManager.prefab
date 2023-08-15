@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 387028182228398011}
   - component: {fileID: 1723694064635351877}
   - component: {fileID: 2168328216722150251}
+  - component: {fileID: 1473548895}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -87,3 +88,20 @@ MonoBehaviour:
   attackStatBonusName: AttackStatBonus
   rangeStatValueName: RangeStatValue
   rangeStatBonuseName: RangeStatBonus
+  specialEffectList: SpecialEffectList
+--- !u!114 &1473548895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387028182228398008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75edeb34c956c0478e7477dfa22837d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDoubloonAmountName: DoubloonAmount
+  costTotalName: CostSubtraction
+  subtractionLineName: SubtractionLine
+  remainingDoubloonsName: PredictedTotal
