@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:Label text="Lobby Info" display-tooltip-when-elided="true" class="heading-font menu-text" style="font-size: 100px;" />
+        <ui:Label text="DataToPopulate" display-tooltip-when-elided="true" name="LobbyData" class="heading-font" />
+    </ui:VisualElement>
+</ui:UXML>

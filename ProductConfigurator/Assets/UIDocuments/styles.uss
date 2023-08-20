@@ -201,3 +201,10 @@
 Label {
     color: rgb(58, 23, 8);
 }
+
+.disabled-selector-field {
+}
+
+.disabled-selector-field Label {
+    color: rgba(77, 77, 77, 255);
+}
