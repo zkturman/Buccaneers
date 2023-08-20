@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
 public class ServerConnector : MonoBehaviourPunCallbacks
@@ -21,7 +22,9 @@ public class ServerConnector : MonoBehaviourPunCallbacks
 
     private void createRoomWithMaxPlayers(byte maxNumberOfPlayers)
     {
-        PhotonNetwork.JoinRandomOrCreateRoom(null, maxNumberOfPlayers);
+        RoomOptions roomSettings = new RoomOptions();
+        roomSettings.MaxPlayers = 2;
+        PhotonNetwork.JoinRandomOrCreateRoom(null, 0, MatchmakingMode.FillRoom, null, null, null, roomSettings);
     }
 
     public override void OnJoinedRoom()
