@@ -1,7 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIDocuments/styles.uss?fileID=7433441132597879392&amp;guid=cc30088a3385c144e8846dabf347bc47&amp;type=3#styles" />
-    <ui:VisualElement class="menu-panel-style" style="flex-grow: 0; align-items: center; justify-content: center; width: 75%; height: 75%; left: 12.5%; top: 12.5%;">
-        <ui:Label text="Lobby Info" display-tooltip-when-elided="true" class="heading-font menu-text" style="font-size: 100px;" />
-        <ui:Label text="DataToPopulate" display-tooltip-when-elided="true" name="LobbyData" class="heading-font" />
+    <ui:VisualElement class="menu-panel-style" style="align-items: center; justify-content: center; width: 50%; height: 50%; left: 25%; top: 25%;">
+        <ui:Label text="Loading game..." display-tooltip-when-elided="true" class="menu-text heading-font" style="font-size: 100px;" />
     </ui:VisualElement>
 </ui:UXML>

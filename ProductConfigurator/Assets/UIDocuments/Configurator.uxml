@@ -33,7 +33,7 @@
                         <ui:Label text="0" display-tooltip-when-elided="true" name="PredictedTotal" class="menu-title" style="-unity-text-align: upper-right;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Instance template="BeastieStats" name="BeastieStats" style="background-color: rgba(202, 202, 202, 0.28); border-top-color: rgb(144, 42, 0); border-bottom-color: rgb(144, 42, 0); border-left-width: 0; border-right-width: 0; border-top-width: 15px; border-bottom-width: 15px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-left-color: rgb(144, 42, 0); border-right-color: rgb(144, 42, 0);" />
+                <ui:Instance template="BeastieStats" name="BeastieStats" class="menu-panel-style" />
                 <ui:VisualElement name="ConfirmButton" style="align-items: center;">
                     <ui:Button text="Confirm" display-tooltip-when-elided="true" class="heading-font" style="width: 500px; height: 250px; border-left-color: rgb(58, 23, 8); border-right-color: rgb(58, 23, 8); border-top-color: rgb(58, 23, 8); border-bottom-color: rgb(58, 23, 8); border-left-width: 15px; border-right-width: 15px; border-top-width: 15px; border-bottom-width: 15px; background-color: rgb(144, 42, 0); color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
