@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using Cinemachine;
 
 
 public class ServerConnector : MonoBehaviourPunCallbacks, IInRoomCallbacks
@@ -14,6 +15,9 @@ public class ServerConnector : MonoBehaviourPunCallbacks, IInRoomCallbacks
     [SerializeField]
     private int secondsOfInactivityBeforeDisconnect = 10;
     private const int MAX_PLAYERS = 2;
+    [SerializeField]
+    private CinemachineVirtualCamera menuCamera;
+
 
     void Start()
     {
@@ -72,8 +76,8 @@ public class ServerConnector : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     private void startGame()
     {
-        Debug.Log("Time to start game, is the host.");
         lobbyInfoMenu.SetActive(false);
         loadingMenu.SetActive(true);
+        menuCamera.Priority = 0;
     }
 }

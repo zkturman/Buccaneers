@@ -10,7 +10,10 @@ public class UIUpdateController : MonoBehaviour
     private DoubloonCostManager costDisplay;
     [SerializeField]
     private BeastieModelPicker[] beastiePickers;
-    
+    private BeastieType currentBeastie;
+    private ColourType currentColour;
+    private AuraType currentAura;
+
     public void SelectElement(IFieldData newFieldData, IFieldData oldFieldData)
     {
         StatData newBonus = new StatData(newFieldData.BonusStat, newFieldData.BonusStatValue);
@@ -39,27 +42,35 @@ public class UIUpdateController : MonoBehaviour
     public void SelectElement(BeastieFieldData newFieldData, BeastieFieldData oldFieldData)
     {
         SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
+        currentBeastie = newFieldData.Type;
         for (int i = 0; i < beastiePickers.Length; i++)
         {
-            beastiePickers[i].SelectModel(newFieldData.Type);
+            beastiePickers[i].SelectModel(currentBeastie);
         }
     }
 
     public void SelectElement(ColourFieldData newFieldData, ColourFieldData oldFieldData)
     {
         SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
+        currentColour = newFieldData.Colour;
         for (int i = 0; i < beastiePickers.Length; i++)
         {
-            beastiePickers[i].SetColour(newFieldData.Colour);
+            beastiePickers[i].SetColour(currentColour);
         }
     }
 
     public void SelectElement(AuraFieldData newFieldData, AuraFieldData oldFieldData)
     {
         SelectElement((IFieldData)newFieldData, (IFieldData)oldFieldData);
+        currentAura = newFieldData.Aura;
         for (int i = 0; i < beastiePickers.Length; i++)
         {
-            beastiePickers[i].SetAura(newFieldData.Aura);
+            beastiePickers[i].SetAura(currentAura);
         }
+    }
+
+    public BeastieData GetCurrentBeastieConfig()
+    {
+        return new BeastieData(currentBeastie, currentColour, currentAura);
     }
 }

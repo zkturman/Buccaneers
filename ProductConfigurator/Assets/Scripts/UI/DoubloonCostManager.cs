@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class DoubloonCostManager : MonoBehaviour
 {
-    [SerializeField]
-    private PirateCharacter pirateInfo;
+    public PirateCharacter PirateInfo { get; set; }
     private int currentSpendAmount = 0;
     private Label currentDoubloons;
     private Label currentSpend;
@@ -19,7 +18,7 @@ public class DoubloonCostManager : MonoBehaviour
         currentSpend = rootElement.Q<Label>(DoubloonNameManager.Names.CostTotalName);
         subtractionLine = rootElement.Q(DoubloonNameManager.Names.SubtractionLineName);
         remainingDoubloons = rootElement.Q<Label>(DoubloonNameManager.Names.RemaininDoubloonsName);
-        updateCurrentDoubloons(pirateInfo.CurrentDoubloons);
+        updateCurrentDoubloons(PirateInfo.CurrentDoubloons);
         updateCostDisplay();
     }
 
@@ -44,7 +43,7 @@ public class DoubloonCostManager : MonoBehaviour
         else
         {
             currentSpend.text = formatSubtractionText(currentSpendAmount);
-            int remainingAmount = pirateInfo.CurrentDoubloons - currentSpendAmount;
+            int remainingAmount = PirateInfo.CurrentDoubloons - currentSpendAmount;
             remainingDoubloons.text = remainingAmount.ToString();
             hideSubtraction(false);
         }

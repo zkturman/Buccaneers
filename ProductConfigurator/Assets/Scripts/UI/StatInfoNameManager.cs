@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatInfoNameManager : MonoBehaviour
+public class StatInfoNameManager : MonoBehaviour, IMenuLoadStep
 {
+    [SerializeField]
+    private int loadPriority;
+    public int Priority { get => loadPriority; }
     [SerializeField]
     private string healthStatValueName = "HealthStatValue";
     public string HealthStatValueName { get => healthStatValueName; }
@@ -41,8 +44,9 @@ public class StatInfoNameManager : MonoBehaviour
 
     public static StatInfoNameManager Names;
 
-    void Awake()
+    public IEnumerator LoadStep() 
     {
         Names = this;
+        yield break;
     }
 }

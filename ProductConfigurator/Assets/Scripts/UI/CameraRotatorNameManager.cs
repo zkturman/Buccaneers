@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotatorNameManager : MonoBehaviour
+public class CameraRotatorNameManager : MonoBehaviour, IMenuLoadStep
 {
+    [SerializeField]
+    private int loadPriority;
+    public int Priority { get => loadPriority; }
     [SerializeField]
     private string leftButtonName;
     public string LeftButtonName { get => leftButtonName; }
@@ -15,8 +18,10 @@ public class CameraRotatorNameManager : MonoBehaviour
     public string ZoomButtonName { get => zoomButtonName; }
 
     public static CameraRotatorNameManager Names;
-    private void Awake()
+
+    public IEnumerator LoadStep()
     {
         Names = this;
+        yield break;
     }
 }

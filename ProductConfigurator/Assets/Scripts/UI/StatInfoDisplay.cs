@@ -4,10 +4,12 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class StatInfoDisplay : MonoBehaviour
+public class StatInfoDisplay : MonoBehaviour, IMenuLoadStep
 {
     [SerializeField]
-    private PirateCharacter pirateInfo;
+    private int loadPriority;
+    public int Priority { get => loadPriority; }
+    public PirateCharacter PirateInfo { get; set; }
     private StatData bonusStats;
     private Dictionary<SpecialEffectType, int> specialEffectTracker;
     private Label healthValue;
@@ -19,17 +21,19 @@ public class StatInfoDisplay : MonoBehaviour
     private Label rangeValue;
     private Label rangeBonus;
     private Label specialEffectList;
-    private void Awake()
+    public IEnumerator LoadStep()
     {
-        //bonusStats = new StatData();
+        this.enabled = true;
+        yield return null;
     }
     private void OnEnable()
     {
+        bonusStats = new StatData();
+        UIDocument test = GetComponent<UIDocument>();
         VisualElement rootElement = GetComponent<UIDocument>().rootVisualElement;
         StatInfoNameManager nameInfo = StatInfoNameManager.Names;
-        StatData pirateStats = pirateInfo.DefaultStats;
+        StatData pirateStats = PirateInfo.DefaultStats;
         specialEffectTracker = SpecialEffect.GenerateCounterMap();
-        bonusStats = new StatData();
         healthValue = rootElement.Q<Label>(nameInfo.HealthStatValueName);
         healthBonus = rootElement.Q<Label>(nameInfo.HealthStatBonusName);
         speedValue = rootElement.Q<Label>(nameInfo.SpeedStatValueName);

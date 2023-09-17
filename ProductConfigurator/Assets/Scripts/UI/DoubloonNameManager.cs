@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubloonNameManager : MonoBehaviour
+public class DoubloonNameManager : MonoBehaviour, IMenuLoadStep
 {
+    [SerializeField]
+    private int loadPriority;
+    public int Priority { get => loadPriority; }
     [SerializeField]
     private string currentDoubloonAmountName = "DoubloonAmount";
     public string CurrentDoubloonAmountName { get => currentDoubloonAmountName; }
@@ -18,8 +21,9 @@ public class DoubloonNameManager : MonoBehaviour
     public string RemaininDoubloonsName { get => remainingDoubloonsName; }
     public static DoubloonNameManager Names;
 
-    private void Awake()
+    public IEnumerator LoadStep()
     {
         Names = this;
+        yield break;
     }
 }

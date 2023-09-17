@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectorFieldClassManager : MonoBehaviour
+public class SelectorFieldClassManager : MonoBehaviour, IMenuLoadStep
 {
+    [SerializeField]
+    private int loadPriority = 0;
+    public int Priority { get => loadPriority; }
     [SerializeField]
     private string nameLabelClass = "NameLabel";
     public string NameLabelClass { get => nameLabelClass; }
@@ -25,9 +28,10 @@ public class SelectorFieldClassManager : MonoBehaviour
 
     public static SelectorFieldClassManager Classes;
 
-    private void Awake()
+    public IEnumerator LoadStep()
     {
         Classes = this;
+        yield break;
     }
 
 }

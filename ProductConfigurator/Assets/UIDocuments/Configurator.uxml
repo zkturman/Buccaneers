@@ -35,7 +35,7 @@
                 </ui:VisualElement>
                 <ui:Instance template="BeastieStats" name="BeastieStats" class="menu-panel-style" />
                 <ui:VisualElement name="ConfirmButton" style="align-items: center;">
-                    <ui:Button text="Confirm" display-tooltip-when-elided="true" class="heading-font" style="width: 500px; height: 250px; border-left-color: rgb(58, 23, 8); border-right-color: rgb(58, 23, 8); border-top-color: rgb(58, 23, 8); border-bottom-color: rgb(58, 23, 8); border-left-width: 15px; border-right-width: 15px; border-top-width: 15px; border-bottom-width: 15px; background-color: rgb(144, 42, 0); color: rgb(255, 255, 255);" />
+                    <ui:Button text="Confirm" display-tooltip-when-elided="true" name="ConfirmButton" class="heading-font large-button" style="width: 500px; height: 250px; border-left-color: rgb(58, 23, 8); border-right-color: rgb(58, 23, 8); border-top-color: rgb(58, 23, 8); border-bottom-color: rgb(58, 23, 8); border-left-width: 15px; border-right-width: 15px; border-top-width: 15px; border-bottom-width: 15px; background-color: rgb(144, 42, 0); color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

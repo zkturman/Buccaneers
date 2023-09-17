@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class IconManager : MonoBehaviour
+public class IconManager : MonoBehaviour, IMenuLoadStep
 {
+    [SerializeField]
+    private int loadPriority;
+    public int Priority { get => loadPriority; }
     [SerializeField]
     private BeastieIconKeyValue[] BeastieIcons;
     private Dictionary<BeastieType, Sprite> beastieMap;
@@ -25,7 +28,7 @@ public class IconManager : MonoBehaviour
 
     public static IconManager Icons;
 
-    private void Awake()
+    public IEnumerator LoadStep()
     {
         beastieMap = BeastieIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         effectMap = SpecialEffectIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
@@ -33,6 +36,7 @@ public class IconManager : MonoBehaviour
         colourMap = ColourIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         auraMap = AuraIcons.ToDictionary(pair => pair.Type, pair => pair.Value);
         Icons = this;
+        yield break;
     }
 
     public Sprite GetBeastieIcon(BeastieType typeToGet)

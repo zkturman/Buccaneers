@@ -85,7 +85,7 @@
 }
 
 .menu-button:hover {
-    scale: 1.5 1.5;
+    scale: 1.25 1.25;
 }
 
 .arrow-button {
@@ -105,7 +105,7 @@
 }
 
 .arrow-button:hover {
-    scale: 1.5 1.5;
+    scale: 1.25 1.25;
 }
 
 .icon-apsect {
@@ -206,5 +206,24 @@ Label {
 }
 
 .disabled-selector-field Label {
-    color: rgba(77, 77, 77, 255);
+    color: rgb(77, 77, 77);
+}
+
+.large-button {
+}
+
+.large-button:hover {
+    scale: 1.1 1.1;
+}
+
+.large-button:active {
+    scale: 0.95 0.95;
+}
+
+.arrow-button:active {
+    scale: 0.95 0.95;
+}
+
+.menu-button:active {
+    scale: 0.95 0.95;
 }
