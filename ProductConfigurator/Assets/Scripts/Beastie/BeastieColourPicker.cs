@@ -21,7 +21,7 @@ public class BeastieColourPicker : MonoBehaviour
         }
         else
         {
-            beastieModel.material = new Material(defaultMaterial);
+            beastieModel.material = new Material(getDefaultMaterial());
             beastieModel.material.mainTexture = textureToSet;
         }
     }

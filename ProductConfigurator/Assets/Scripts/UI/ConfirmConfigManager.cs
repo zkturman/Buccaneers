@@ -32,7 +32,7 @@ public class ConfirmConfigManager : MonoBehaviour
         string serialisedData = dataSerialiser.SerialiseBeastieData(configData);
         GameStateHandler gameStateHandler = FindObjectOfType<GameStateHandler>();
         int playerId = PhotonNetwork.LocalPlayer.ActorNumber;
-        gameStateHandler.photonView.RPC("ConfigureBeastie", RpcTarget.All, playerId, serialisedData);
         gameStateHandler.photonView.RPC("RegisterPlayer", RpcTarget.All, playerId);
+        gameStateHandler.photonView.RPC("ConfigureBeastie", RpcTarget.All, playerId, serialisedData);
     }
 }

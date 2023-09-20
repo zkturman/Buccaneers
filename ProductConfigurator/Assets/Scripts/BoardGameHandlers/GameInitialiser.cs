@@ -20,6 +20,7 @@ public class GameInitialiser : MonoBehaviour
     private PirateCharacter pirateInfo;
     private StatInfoDisplay statInfo;
     private DoubloonCostManager costManager;
+    private GameBeastieManager beastieManager;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class GameInitialiser : MonoBehaviour
         statInfo.PirateInfo = pirateInfo;
         costManager = FindObjectOfType<DoubloonCostManager>(true);
         costManager.PirateInfo = pirateInfo;
+        beastieManager = FindObjectOfType<GameBeastieManager>();
     }
 
     public void ShowRegisteredWaitScene()
@@ -39,6 +41,7 @@ public class GameInitialiser : MonoBehaviour
         {
             objectsToDisableAtRegistered[i].SetActive(false);
         }
+        beastieManager.PlaceMyBeastieAtStart();
     }
 
     public void StartGame()
@@ -52,5 +55,7 @@ public class GameInitialiser : MonoBehaviour
         {
             objectsToDisableAtStart[i].SetActive(false);
         }
+        beastieManager.PlaceMyBeastieAtStart();
+        beastieManager.PlaceOpponentBeastieAtStart();
     }
 }
