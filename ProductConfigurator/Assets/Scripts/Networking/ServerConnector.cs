@@ -4,28 +4,19 @@ using UnityEngine;
 using Cinemachine;
 
 
-public class ServerConnector : MonoBehaviourPunCallbacks, IInRoomCallbacks
+public class ServerConnector : ConnectionCreator
 {
-    [SerializeField]
-    private GameObject connectingMenu;
-    [SerializeField]
-    private GameObject lobbyInfoMenu;
-    [SerializeField]
-    private GameObject loadingMenu;
     [SerializeField]
     private int secondsOfInactivityBeforeDisconnect = 10;
     private const int MAX_PLAYERS = 2;
-    [SerializeField]
-    private CinemachineVirtualCamera menuCamera;
 
-
-    void Start()
+    protected override void Start()
     {
-        connectingMenu.SetActive(true);
-        lobbyInfoMenu.SetActive(false);
+        base.Start();
         DontDestroyOnLoad(gameObject);
         PhotonNetwork.ConnectUsingSettings();
     }
+
     private void Update()
     {
         PhotonNetwork.NetworkingClient.Service();
@@ -54,7 +45,7 @@ public class ServerConnector : MonoBehaviourPunCallbacks, IInRoomCallbacks
     {
         connectingMenu.SetActive(false);
         lobbyInfoMenu.SetActive(true);
-        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        if (PhotonNetwork.CurrentRoom.PlayerCount == MAX_PLAYERS)
         {
             startGame();
         }
@@ -67,17 +58,5 @@ public class ServerConnector : MonoBehaviourPunCallbacks, IInRoomCallbacks
         {
             startGame();
         }
-    }
-
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        Debug.Log("Player left the room");
-    }
-
-    private void startGame()
-    {
-        lobbyInfoMenu.SetActive(false);
-        loadingMenu.SetActive(true);
-        menuCamera.Priority = 0;
     }
 }

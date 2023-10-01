@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4940496034781220576}
   - component: {fileID: 7231067349156158172}
+  - component: {fileID: 8391200107733526145}
+  - component: {fileID: 7366072558342372898}
   m_Layer: 0
   m_Name: BoardTile
   m_TagString: Untagged
@@ -48,6 +50,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileBox: {fileID: 5743213987981809365}
   borderBox: {fileID: 4605645529515038520}
+  highlighter: {fileID: 8391200107733526145}
+--- !u!114 &8391200107733526145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693244535058890058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030341ff70954c64192e4e72a354206d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileRender: {fileID: 3746905259045187650}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!65 &7366072558342372898
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693244535058890058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4068758233618360610
 GameObject:
   m_ObjectHideFlags: 0

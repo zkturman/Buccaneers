@@ -4,35 +4,14 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Cinemachine;
 using Photon.Pun;
-public class ConfirmConfigManager : MonoBehaviour
+public class ConfirmConfigManager : ConfirmButton
 {
-    [SerializeField]
-    private string confirmButtonName;
-    private Button confirmButton;
-    [SerializeField]
-    private CinemachineVirtualCamera waitingCamera;
-    [SerializeField]
-    private GameObject configMenu;
-    [SerializeField]
-    private UIUpdateController uiController;
-
-    private void OnEnable()
+    protected override void buttonClickAction()
     {
-        VisualElement rootElement = GetComponent<UIDocument>().rootVisualElement;
-        confirmButton = rootElement.Q<Button>(confirmButtonName);
-        confirmButton.clicked += buttonClickAction;
-    }
-
-    private void buttonClickAction()
-    {
-        waitingCamera.Priority = 100;
-        configMenu.SetActive(false);
-        BeastieData configData = uiController.GetCurrentBeastieConfig();
-        BeastieConfigSerialiser dataSerialiser = new BeastieConfigSerialiser();
-        string serialisedData = dataSerialiser.SerialiseBeastieData(configData);
-        GameStateHandler gameStateHandler = FindObjectOfType<GameStateHandler>();
+        updateUIAfterConfirm();
+        string serialisedData = getSerialisedBeastieConfig();
         int playerId = PhotonNetwork.LocalPlayer.ActorNumber;
-        gameStateHandler.photonView.RPC("RegisterPlayer", RpcTarget.All, playerId);
-        gameStateHandler.photonView.RPC("ConfigureBeastie", RpcTarget.All, playerId, serialisedData);
+        gameStateHandler.photonView.RPC("RegisterPlayerRemote", RpcTarget.All, playerId);
+        gameStateHandler.photonView.RPC("ConfigureBeastieRemote", RpcTarget.All, playerId, serialisedData);
     }
 }

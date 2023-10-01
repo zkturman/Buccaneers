@@ -42,12 +42,14 @@ public class GameBeastieManager : MonoBehaviour
 
     public void PlaceMyBeastie(int rowIndex, int tileIndex)
     {
-
+        Vector3 targetPosition = gameBoard.GetCoordinates(rowIndex, tileIndex);
+        placeBeastieAtCoordinates(targetPosition, myBeastie.gameObject);
     }
 
     public void PlaceOpponentBeastie(int rowIndex, int tileIndex)
     {
-
+        Vector3 targetPosition = gameBoard.GetCoordinates(rowIndex, tileIndex);
+        placeBeastieAtCoordinates(targetPosition, opponentBeastie.gameObject);
     }
 
     private void placeBeastieAtCoordinates(Vector3 newLocation, GameObject beastieToPlace)
